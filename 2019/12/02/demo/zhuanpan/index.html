@@ -1,0 +1,942 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="大转盘, golang,linux,python,android">
+    <meta name="description" content="大转盘
+zhuanpan
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>大转盘 | 王先森</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+</head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">王先森</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">王先森</div>
+        <div class="logo-desc">
+            
+            坚持做一件事
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        大转盘
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/h5/" target="_blank">
+                                <span class="chip bg-color">h5</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-12-02
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>大转盘</p>
+<p><a href="baidu.com">zhuanpan</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br><span class="line">686</span><br><span class="line">687</span><br><span class="line">688</span><br><span class="line">689</span><br><span class="line">690</span><br><span class="line">691</span><br><span class="line">692</span><br><span class="line">693</span><br><span class="line">694</span><br><span class="line">695</span><br><span class="line">696</span><br><span class="line">697</span><br><span class="line">698</span><br><span class="line">699</span><br><span class="line">700</span><br><span class="line">701</span><br><span class="line">702</span><br><span class="line">703</span><br><span class="line">704</span><br><span class="line">705</span><br><span class="line">706</span><br><span class="line">707</span><br><span class="line">708</span><br><span class="line">709</span><br><span class="line">710</span><br><span class="line">711</span><br><span class="line">712</span><br><span class="line">713</span><br><span class="line">714</span><br><span class="line">715</span><br><span class="line">716</span><br><span class="line">717</span><br><span class="line">718</span><br><span class="line">719</span><br><span class="line">720</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;keywords&quot; content=&quot;转盘,代替决定,选择困难症,代替选择,代你决定,代你选择,在线转盘&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;description&quot; content=&quot;转盘是一个简易的在线网页应用，旨在帮助遇到难以选择的状况或罹患选择困难症的个人或群体快速选择&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;author&quot; content=&quot;王东阳&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=0.5&quot;&gt;</span><br><span class="line">    &lt;title&gt;大转盘&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">    &lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;/favicons/lunch-launcher-favicon.ico&quot;&gt;</span><br><span class="line">    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;/favicons/lunch-launcher-favicon-16x16.png&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;link href=&quot;https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line">    &lt;link href=&quot;https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 本应用 css 和 javascript 都没有做最小化，欢迎交流使用 --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;style title=&quot;lunch-launcher&quot;&gt;</span><br><span class="line">        body &#123;</span><br><span class="line">            margin: 0px;</span><br><span class="line">            background-color: #EAEAEA;</span><br><span class="line">            width: 100vw;</span><br><span class="line">            height: 100vh;</span><br><span class="line">        &#125;</span><br><span class="line">        #container &#123;</span><br><span class="line">            width: 100vw;</span><br><span class="line">            height: 90vh;</span><br><span class="line">            display: flex;</span><br><span class="line">            justify-content: center;</span><br><span class="line">            align-items: center;</span><br><span class="line">        &#125;</span><br><span class="line">        #wrapper &#123;</span><br><span class="line">            margin: 0 auto;</span><br><span class="line">            width: 532px;</span><br><span class="line">        &#125;</span><br><span class="line">        #wheel &#123;</span><br><span class="line">            width: 532px;</span><br><span class="line">            height: 532px;</span><br><span class="line">            border-radius: 50%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            position: relative;</span><br><span class="line">            border: 16px solid #fff;</span><br><span class="line">            overflow: hidden;</span><br><span class="line">            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);</span><br><span class="line">            z-index: 10;</span><br><span class="line">        &#125;</span><br><span class="line">        #inner-wheel &#123;</span><br><span class="line">            width: 100%;</span><br><span class="line">            height: 100%;</span><br><span class="line">            position: relative;</span><br><span class="line">            transition: all 6s cubic-bezier(0,.99,.44,.99);</span><br><span class="line">        &#125;</span><br><span class="line">        #wheel div.sec &#123;</span><br><span class="line">            position: absolute;</span><br><span class="line">            width: 0;</span><br><span class="line">            height: 0;</span><br><span class="line">            border-style: solid;</span><br><span class="line">            border-width: 250px 144px 0;</span><br><span class="line">            border-color: #19c transparent;</span><br><span class="line">            transform-origin: 144px 250px;</span><br><span class="line">            left: calc(50% - 144px);</span><br><span class="line">            top:0px;</span><br><span class="line">            opacity:1;</span><br><span class="line">        &#125;</span><br><span class="line">        #wheel div.sec:nth-child(1) &#123;</span><br><span class="line">            transform: rotate(0deg);</span><br><span class="line">            border-color: #16a085 transparent;</span><br><span class="line">        &#125;</span><br><span class="line">        #wheel div.sec .sec-content &#123;</span><br><span class="line">            margin-top: -200px;</span><br><span class="line">            color: #EEE;</span><br><span class="line">            position: relative;</span><br><span class="line">            z-index: 9;</span><br><span class="line">            display: block;</span><br><span class="line">            text-align: center;</span><br><span class="line">            font-size:16px;</span><br><span class="line">            margin-left:-10px;</span><br><span class="line">            user-select: none;</span><br><span class="line">            text-shadow: rgba(255, 255, 255, 0.1) 0px -1px 0px, rgba(0, 0, 0, 0.2) 0px 1px 0px;</span><br><span class="line">        &#125;</span><br><span class="line">        #spin &#123;</span><br><span class="line">            width: 136px;</span><br><span class="line">            height: 136px;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 50%;</span><br><span class="line">            left: 50%;</span><br><span class="line">            background: white;</span><br><span class="line">            transform: translate(-50%, -50%);</span><br><span class="line">            border-radius: 50%;</span><br><span class="line">            box-shadow:0px 3px 0px rgba(0,0,0,0.1);</span><br><span class="line">            z-index: 11;</span><br><span class="line">            cursor: pointer;</span><br><span class="line">            user-select: none;</span><br><span class="line">        &#125;</span><br><span class="line">        #spin:before &#123;</span><br><span class="line">            content: &quot;&quot;;</span><br><span class="line">            position: absolute;</span><br><span class="line">            width: 0px;</span><br><span class="line">            height: 0px;</span><br><span class="line">            border-style: solid;</span><br><span class="line">            border-width: 0 20px 28px 20px;</span><br><span class="line">            border-color: transparent transparent #ffffff transparent;</span><br><span class="line">            top: -24px;</span><br><span class="line">            left: 48px;</span><br><span class="line">        &#125;</span><br><span class="line">        #spin:after &#123;</span><br><span class="line">            content: &quot;去哪吃&quot;;</span><br><span class="line">            text-align: center;</span><br><span class="line">            line-height: 136px;</span><br><span class="line">            color: white;</span><br><span class="line">            position: relative;</span><br><span class="line">            z-index: 12;</span><br><span class="line">            width: 136px;</span><br><span class="line">            height: 136px;</span><br><span class="line">            display: block;</span><br><span class="line">        &#125;</span><br><span class="line">        #spin:active #inner-spin &#123;</span><br><span class="line">            box-shadow:inset 0px 0px 5px rgba(0,0,0,0.4);</span><br><span class="line">        &#125;</span><br><span class="line">        #spin:active:after &#123;</span><br><span class="line">            font-size: 15px;</span><br><span class="line">        &#125;</span><br><span class="line">        #inner-spin &#123;</span><br><span class="line">            width: 108px;</span><br><span class="line">            height: 108px;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: 50%;</span><br><span class="line">            left: 50%;</span><br><span class="line">            transform: translate(-50%, -50%);</span><br><span class="line">            z-index: 12;</span><br><span class="line">            background: #BCBCBC;</span><br><span class="line">            border-radius: 50%;</span><br><span class="line">        &#125;</span><br><span class="line">        #sec-settings &gt; li &#123;</span><br><span class="line">            margin-top: 10px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;alert alert-success text-center alert-dismissible fade&quot;</span><br><span class="line">     role=&quot;alert&quot;</span><br><span class="line">     style=&quot;width: 400px; position: fixed; left: calc(50% - 200px);&quot;&gt;</span><br><span class="line">    链接成功复制到剪贴板</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;p id=&quot;share-link&quot; style=&quot;display: none;&quot;&gt;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;d-flex justify-content-end mt-2&quot;&gt;</span><br><span class="line">    &lt;button class=&quot;btn btn-outline-info mr-2&quot;</span><br><span class="line">            id=&quot;share-link-button&quot;&gt;</span><br><span class="line">        复制分享链接</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;container&quot;&gt;</span><br><span class="line">    &lt;div id=&quot;wrapper&quot;&gt;</span><br><span class="line">        &lt;div id=&quot;wheel&quot;&gt;</span><br><span class="line">            &lt;div id=&quot;inner-wheel&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;sec&quot;&gt;&lt;div class=&quot;sec-content&quot;&gt;&lt;/div&gt;&lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div id=&quot;spin&quot;&gt;</span><br><span class="line">                &lt;div id=&quot;inner-spin&quot;&gt;&lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;modals&quot;&gt;</span><br><span class="line">    &lt;button type=&quot;button&quot;</span><br><span class="line">            class=&quot;btn btn-primary ml-2&quot;</span><br><span class="line">            data-toggle=&quot;modal&quot;</span><br><span class="line">            data-target=&quot;#wheel-settings&quot;&gt;</span><br><span class="line">        转盘设置</span><br><span class="line">    &lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div class=&quot;modal fade&quot; id=&quot;wheel-settings&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;wheel-settings-title&quot; aria-hidden=&quot;true&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;modal-dialog&quot; role=&quot;document&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;modal-content&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;modal-header&quot;&gt;</span><br><span class="line">                    &lt;h5 class=&quot;modal-title&quot; id=&quot;wheel-settings-title&quot;&gt;转盘设置&lt;/h5&gt;</span><br><span class="line">                    &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;</span><br><span class="line">                        &lt;span aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;</span><br><span class="line">                    &lt;/button&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;modal-body&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">                        &lt;label for=&quot;wheel-title&quot;&gt;转盘标题:&lt;/label&gt;</span><br><span class="line">                        &lt;input type=&quot;text&quot; name=&quot;wheel-title&quot; id=&quot;wheel-title&quot; class=&quot;form-control&quot;&gt;</span><br><span class="line"></span><br><span class="line">                        &lt;div class=&quot;form-check&quot; style=&quot;display: none;&quot;&gt;</span><br><span class="line">                            &lt;label class=&quot;form-check-label&quot;&gt;</span><br><span class="line">                                &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; name=&quot;wheel-mode&quot; value=&quot;uniform&quot; checked&gt;</span><br><span class="line">                                等分模式</span><br><span class="line">                            &lt;/label&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                        &lt;div class=&quot;form-check disabled&quot; style=&quot;display: none;&quot;&gt;</span><br><span class="line">                            &lt;label class=&quot;form-check-label &quot;&gt;</span><br><span class="line">                                &lt;input class=&quot;form-check-input&quot; type=&quot;radio&quot; name=&quot;wheel-mode&quot; value=&quot;arbitrary&quot; disabled&gt;</span><br><span class="line">                                任意分割模式</span><br><span class="line">                            &lt;/label&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                        &lt;label class=&quot;mt-1&quot;&gt;转盘选项:&lt;/label&gt;</span><br><span class="line">                        &lt;ul id=&quot;sec-settings&quot; class=&quot;list-unstyled&quot;&gt;&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">                        &lt;label for=&quot;sec-content&quot;&gt;新增选项&lt;/label&gt;</span><br><span class="line">                        &lt;div class=&quot;input-group&quot;&gt;</span><br><span class="line">                            &lt;input type=&quot;text&quot; name=&quot;sec-content&quot; id=&quot;sec-content&quot; class=&quot;form-control&quot;&gt;</span><br><span class="line">                            &lt;span class=&quot;input-group-btn&quot;&gt;</span><br><span class="line">                &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot; id=&quot;add-sec-content&quot;&gt;添加&lt;/button&gt;</span><br><span class="line">              &lt;/span&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;label for=&quot;select-wheel-template&quot; class=&quot;mt-5&quot;&gt;使用保存过的转盘&lt;/label&gt;</span><br><span class="line">                    &lt;div class=&quot;input-group mb-2&quot;&gt;</span><br><span class="line">                        &lt;select class=&quot;custom-select form-control&quot; id=&quot;select-wheel-template&quot;&gt;&lt;/select&gt;</span><br><span class="line">                        &lt;span class=&quot;input-group-btn&quot;&gt;</span><br><span class="line">              &lt;button class=&quot;btn btn-danger&quot; type=&quot;button&quot; id=&quot;remove-wheel-template&quot;&gt;删除&lt;/button&gt;</span><br><span class="line">            &lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot; id=&quot;save-template&quot;&gt;保存转盘&lt;/button&gt;</span><br><span class="line">                    &lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot; id=&quot;factory-reset&quot;&gt;恢复出厂设置&lt;/button&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;modal-footer&quot;&gt;</span><br><span class="line">                    &lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot; data-dismiss=&quot;modal&quot;&gt;取消&lt;/button&gt;</span><br><span class="line">                    &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; id=&quot;save-settings&quot; data-dismiss=&quot;modal&quot;&gt;确定&lt;/button&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/random-js/1.0.8/random.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;application/javascript&quot;&gt;</span><br><span class="line">    ;(function(globalObject) &#123;</span><br><span class="line">        &quot;use strict&quot;;</span><br><span class="line">        var STORAGE_KEY = &quot;lunch-launcher&quot;;</span><br><span class="line">        var defaultWheel = &#123;</span><br><span class="line">            title: &quot;去哪吃&quot;,</span><br><span class="line">            mode: &apos;uniform&apos;,</span><br><span class="line">            secs: [&#123;</span><br><span class="line">                content: &apos;北区食堂&apos;,</span><br><span class="line">                ratio: 1/3</span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                content: &apos;汇贤饺子&apos;,</span><br><span class="line">                ratio: 1/3</span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                content: &apos;西区食堂&apos;,</span><br><span class="line">                ratio: 1/3</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;</span><br><span class="line">        var defaultState = &#123;</span><br><span class="line">            templates: [defaultWheel],</span><br><span class="line">            wheel: defaultWheel</span><br><span class="line">        &#125;</span><br><span class="line">        function saveToLocalStorage(state) &#123;</span><br><span class="line">            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));</span><br><span class="line">        &#125;</span><br><span class="line">        function getState() &#123;</span><br><span class="line">            var stateJsonStr = localStorage.getItem(STORAGE_KEY);</span><br><span class="line">            if (stateJsonStr === null) &#123;</span><br><span class="line">                throw new Error(&quot;empty state&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            try &#123;</span><br><span class="line">                return JSON.parse(stateJsonStr);</span><br><span class="line">            &#125; catch (e) &#123;</span><br><span class="line">                throw new Error(&quot;unable to parse current state&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        function init() &#123;</span><br><span class="line">            function getWheelInUrl() &#123;</span><br><span class="line">                var currentUrl = new URL(window.location.href);</span><br><span class="line">                var wheelStrInUrl;</span><br><span class="line">                var wheelInUrl;</span><br><span class="line">                if (typeof(currentUrl.searchParams) === &quot;object&quot;) &#123;</span><br><span class="line">                    wheelStrInUrl = currentUrl.searchParams.get(&quot;wheel&quot;);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    wheelStrInUrl = currentUrl.search.split(&quot;=&quot;)[1];</span><br><span class="line">                &#125;</span><br><span class="line">                try &#123;</span><br><span class="line">                    wheelInUrl = JSON.parse(decodeURIComponent(wheelStrInUrl));</span><br><span class="line">                &#125; catch (e) &#123;</span><br><span class="line">                    wheelInUrl = null;</span><br><span class="line">                &#125;</span><br><span class="line">                return wheelInUrl;</span><br><span class="line">            &#125;</span><br><span class="line">            var wheelInUrl = getWheelInUrl();</span><br><span class="line">            if (wheelInUrl) &#123;</span><br><span class="line">                defaultState = &#123;</span><br><span class="line">                    templates: [defaultWheel],</span><br><span class="line">                    wheel: wheelInUrl</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            try &#123;</span><br><span class="line">                getState();</span><br><span class="line">                if (wheelInUrl) &#123;</span><br><span class="line">                    setWheel(wheelInUrl);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; catch (e) &#123;</span><br><span class="line">                saveToLocalStorage(defaultState);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        function reset() &#123;</span><br><span class="line">            saveToLocalStorage(defaultState);</span><br><span class="line">        &#125;</span><br><span class="line">        function getWheel() &#123;</span><br><span class="line">            return getState().wheel;</span><br><span class="line">        &#125;</span><br><span class="line">        function setWheel(newWheel) &#123;</span><br><span class="line">            var state = getState();</span><br><span class="line">            state.wheel = newWheel;</span><br><span class="line">            saveToLocalStorage(state);</span><br><span class="line">        &#125;</span><br><span class="line">        function getSecs() &#123;</span><br><span class="line">            return getWheel().secs;</span><br><span class="line">        &#125;</span><br><span class="line">        function setSecs(newSecs) &#123;</span><br><span class="line">            var state = getState();</span><br><span class="line">            state.wheel.secs = newSecs;</span><br><span class="line">            saveToLocalStorage(state);</span><br><span class="line">        &#125;</span><br><span class="line">        function getTemplates() &#123;</span><br><span class="line">            return getState().templates;</span><br><span class="line">        &#125;</span><br><span class="line">        function addTemplate(template) &#123;</span><br><span class="line">            var state = getState();</span><br><span class="line">            state.templates.push(template);</span><br><span class="line">            saveToLocalStorage(state);</span><br><span class="line">        &#125;</span><br><span class="line">        function useTemplate(template) &#123;</span><br><span class="line">            var state = getState();</span><br><span class="line">            state.wheel = template;</span><br><span class="line">            saveToLocalStorage(state);</span><br><span class="line">        &#125;</span><br><span class="line">        function useTemplateWithTitle(title) &#123;</span><br><span class="line">            var templates = getTemplates();</span><br><span class="line">            var template = templates.filter(function(tmp) &#123;</span><br><span class="line">                return tmp.title === title;</span><br><span class="line">            &#125;)[0]</span><br><span class="line">            useTemplate(template);</span><br><span class="line">        &#125;</span><br><span class="line">        function removeTemplateByTitle(title) &#123;</span><br><span class="line">            var state = getState();</span><br><span class="line">            state.templates = state.templates.filter(function(template) &#123;</span><br><span class="line">                return template.title !== title</span><br><span class="line">            &#125;);</span><br><span class="line">            saveToLocalStorage(state);</span><br><span class="line">        &#125;</span><br><span class="line">        function clearTemplates() &#123;</span><br><span class="line">            var state = getState();</span><br><span class="line">            state.templates = [];</span><br><span class="line">            saveToLocalStorage(state);</span><br><span class="line">        &#125;</span><br><span class="line">        function getTitle() &#123;</span><br><span class="line">            return getWheel().title;</span><br><span class="line">        &#125;</span><br><span class="line">        function hasTemplateWithTitle(title) &#123;</span><br><span class="line">            var templates = getTemplates();</span><br><span class="line">            var ret = false;</span><br><span class="line">            templates.forEach(function(template) &#123;</span><br><span class="line">                if (template.title === title) &#123;</span><br><span class="line">                    ret = true;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            return ret;</span><br><span class="line">        &#125;</span><br><span class="line">        var wheelState = &#123;</span><br><span class="line">            init: init,</span><br><span class="line">            reset: reset,</span><br><span class="line">            getState: getState,</span><br><span class="line">            getWheel: getWheel,</span><br><span class="line">            setWheel: setWheel,</span><br><span class="line">            getSecs: getSecs,</span><br><span class="line">            setSecs: setSecs,</span><br><span class="line">            getTemplates: getTemplates,</span><br><span class="line">            addTemplate: addTemplate,</span><br><span class="line">            useTemplate: useTemplate,</span><br><span class="line">            useTemplateWithTitle: useTemplateWithTitle,</span><br><span class="line">            removeTemplateByTitle: removeTemplateByTitle,</span><br><span class="line">            clearTemplates: clearTemplates,</span><br><span class="line">            hasTemplateWithTitle: hasTemplateWithTitle,</span><br><span class="line">            getTitle: getTitle</span><br><span class="line">        &#125;</span><br><span class="line">        globalObject.ws = wheelState;</span><br><span class="line">    &#125;(this))</span><br><span class="line">    ws.init();</span><br><span class="line">    window.addEventListener(&quot;load&quot;, function() &#123;</span><br><span class="line">        // --------------------------- Globals</span><br><span class="line">        var STORAGE_KEY = &quot;lunch-launcher&quot;;</span><br><span class="line">        var APP_NAME = STORAGE_KEY;</span><br><span class="line">        var DEFAULT_PALETTE = [</span><br><span class="line">            &apos;#16a085&apos;, &apos;#2980b9&apos;, &apos;#34495e&apos;, &apos;#f39c12&apos;,</span><br><span class="line">            &apos;#d35400&apos;, &apos;#c0392b&apos;, &quot;#B1AF70&quot;, &apos;#B17070&apos;,</span><br><span class="line">            &apos;#765E77&apos;, &apos;#598D59&apos;, &apos;#456D6A&apos;, &apos;#955D5A&apos;]</span><br><span class="line">        var MIN_SECS = 3;</span><br><span class="line">        var MAX_SECS = 12;</span><br><span class="line">        // --------------------- Utilities</span><br><span class="line">        function copyToClipboard(elementId) &#123;</span><br><span class="line">            var aux = document.createElement(&quot;input&quot;);</span><br><span class="line">            aux.setAttribute(&quot;value&quot;, document.getElementById(elementId).innerHTML);</span><br><span class="line">            document.body.appendChild(aux);</span><br><span class="line">            aux.select();</span><br><span class="line">            document.execCommand(&quot;copy&quot;);</span><br><span class="line">            document.body.removeChild(aux);</span><br><span class="line">        &#125;</span><br><span class="line">        function getStyleSheet(title) &#123;</span><br><span class="line">            for(var i = 0; i &lt; document.styleSheets.length; i++) &#123;</span><br><span class="line">                var sheet = document.styleSheets[i];</span><br><span class="line">                if (sheet.title === title) &#123;</span><br><span class="line">                    return sheet;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        function getColorFromPalette(palette, index) &#123;</span><br><span class="line">            if (index &gt;= palette.length) &#123;</span><br><span class="line">                index = index % palette.length</span><br><span class="line">            &#125;</span><br><span class="line">            return palette[index];</span><br><span class="line">        &#125;</span><br><span class="line">        function createSecEle(sec, pos, isRemovable) &#123;</span><br><span class="line">            var secContainer = document.createElement(&quot;li&quot;);</span><br><span class="line">            secContainer.classList.add(&quot;d-flex&quot;);</span><br><span class="line">            secContainer.classList.add(&quot;justify-content-between&quot;);</span><br><span class="line">            secContainer.id = &quot;sec&quot; + pos;</span><br><span class="line">            var secContentEle = document.createElement(&quot;div&quot;);</span><br><span class="line">            secContentEle.classList.add(&quot;btn&quot;);</span><br><span class="line">            secContentEle.classList.add(&quot;btn-light&quot;);</span><br><span class="line">            secContentEle.classList.add(&quot;btn--sm&quot;);</span><br><span class="line">            secContentEle.id = &quot;sec&quot; + pos;</span><br><span class="line">            secContentEle.innerText = sec.content;</span><br><span class="line">            var secConfirmButtonEle = document.createElement(&quot;button&quot;);</span><br><span class="line">            secConfirmButtonEle.type = &quot;button&quot;;</span><br><span class="line">            secConfirmButtonEle.classList.add(&quot;btn&quot;);</span><br><span class="line">            secConfirmButtonEle.classList.add(&quot;btn-primary&quot;);</span><br><span class="line">            secConfirmButtonEle.id = &quot;sec&quot; + pos + &quot;-confirm&quot;;</span><br><span class="line">            secConfirmButtonEle.style = &quot;display: none;&quot;;</span><br><span class="line">            secConfirmButtonEle.innerText = &quot;确认&quot;;</span><br><span class="line">            secConfirmButtonEle.addEventListener(&quot;click&quot;, function() &#123;</span><br><span class="line">                this.style = &quot;display: none;&quot;;</span><br><span class="line">                secEditButtonEle.style = &quot;display: inherit;&quot;;</span><br><span class="line">                var editInputEle = document.getElementById(&quot;sec&quot; + pos + &quot;-edit-input&quot;);</span><br><span class="line">                var editInputValue = editInputEle.value;</span><br><span class="line">                if (editInputValue.length &gt; 0) &#123;</span><br><span class="line">                    secContentEle.innerText = editInputValue;</span><br><span class="line">                &#125;</span><br><span class="line">                editInputEle.remove();</span><br><span class="line">            &#125;)</span><br><span class="line">            var secEditButtonEle = document.createElement(&quot;button&quot;);</span><br><span class="line">            secEditButtonEle.type = &quot;button&quot;;</span><br><span class="line">            secEditButtonEle.classList.add(&quot;btn&quot;);</span><br><span class="line">            secEditButtonEle.classList.add(&quot;btn-light&quot;);</span><br><span class="line">            secEditButtonEle.id = &quot;sec&quot; + pos + &quot;-edit&quot;;</span><br><span class="line">            secEditButtonEle.innerText = &quot;编辑&quot;;</span><br><span class="line">            secEditButtonEle.addEventListener(&apos;click&apos;, function() &#123;</span><br><span class="line">                this.style = &quot;display: none;&quot;;</span><br><span class="line">                secConfirmButtonEle.style = &quot;display: inherit;&quot;;</span><br><span class="line">                var editInputEle = document.createElement(&quot;input&quot;);</span><br><span class="line">                editInputEle.type = &quot;text&quot;;</span><br><span class="line">                editInputEle.value = &quot;&quot;;</span><br><span class="line">                editInputEle.classList.add(&quot;form-control&quot;);</span><br><span class="line">                editInputEle.classList.add(&quot;ml-2&quot;);</span><br><span class="line">                editInputEle.classList.add(&quot;mr-2&quot;);</span><br><span class="line">                editInputEle.id = &quot;sec&quot; + pos + &quot;-edit-input&quot;;</span><br><span class="line">                secContainer.insertBefore(editInputEle, secButtonContainer);</span><br><span class="line">            &#125;)</span><br><span class="line">            var secRemoveButtonEle = document.createElement(&quot;button&quot;);</span><br><span class="line">            secRemoveButtonEle.type = &quot;button&quot;;</span><br><span class="line">            secRemoveButtonEle.classList.add(&quot;btn&quot;);</span><br><span class="line">            secRemoveButtonEle.classList.add(&quot;btn-danger&quot;);</span><br><span class="line">            secRemoveButtonEle.classList.add(&quot;ml-1&quot;);</span><br><span class="line">            secRemoveButtonEle.id = &quot;sec&quot; + pos + &quot;-remove&quot;;</span><br><span class="line">            secRemoveButtonEle.innerText = &quot;删除&quot;;</span><br><span class="line">            secRemoveButtonEle.addEventListener(&quot;click&quot;, function() &#123;</span><br><span class="line">                if (window.confirm(&quot;确定要删除吗?&quot;)) &#123;</span><br><span class="line">                    secContainer.remove();</span><br><span class="line">                    checkSecNum();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            var secButtonContainer = document.createElement(&quot;div&quot;);</span><br><span class="line">            secButtonContainer.style = &quot;display: flex&quot;;</span><br><span class="line">            secButtonContainer.appendChild(secConfirmButtonEle);</span><br><span class="line">            secButtonContainer.appendChild(secEditButtonEle);</span><br><span class="line">            if (isRemovable) secButtonContainer.appendChild(secRemoveButtonEle);</span><br><span class="line">            secContainer.appendChild(secContentEle);</span><br><span class="line">            secContainer.appendChild(secButtonContainer);</span><br><span class="line">            return secContainer;</span><br><span class="line">        &#125;</span><br><span class="line">        function checkSecNum() &#123;</span><br><span class="line">            var addSecContentButton = document.getElementById(&quot;add-sec-content&quot;);</span><br><span class="line">            var secNum = document.querySelectorAll(&quot;#sec-settings &gt; li&quot;).length;</span><br><span class="line">            addSecContentButton.disabled = secNum &gt;= MAX_SECS;</span><br><span class="line">        &#125;</span><br><span class="line">        // --------------------------- Button Event Listeners</span><br><span class="line">        var degree = 1800;</span><br><span class="line">        var clicks = 0;</span><br><span class="line">        function setUpSpinButton() &#123;</span><br><span class="line">            var $spin = document.getElementById(&quot;spin&quot;);</span><br><span class="line">            var $innerWheel = document.getElementById(&quot;inner-wheel&quot;);</span><br><span class="line">            $spin.addEventListener(&quot;click&quot;, function() &#123;</span><br><span class="line">                clicks++;</span><br><span class="line">                var newDegree = degree*clicks;</span><br><span class="line">                var extraDegree = Random.integer(1, 360)(Random.engines.browserCrypto);</span><br><span class="line">                var totalDegree = newDegree + extraDegree;</span><br><span class="line">                $innerWheel.style.transform = &quot;rotate(&quot; + totalDegree + &apos;deg)&apos;;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        setUpSpinButton();</span><br><span class="line">        function setUpAddSecContentButton() &#123;</span><br><span class="line">            document.getElementById(&quot;add-sec-content&quot;).addEventListener(&apos;click&apos;, function(_) &#123;</span><br><span class="line">                var secContentInputEle = document.querySelector(&quot;input[name=sec-content]&quot;);</span><br><span class="line">                var secSettingsEle = document.getElementById(&quot;sec-settings&quot;);</span><br><span class="line">                var secNum = document.querySelectorAll(&quot;#sec-settings &gt; li&quot;).length;</span><br><span class="line">                var sec = &#123; content: secContentInputEle.value, ratio: 0 &#125;;</span><br><span class="line">                var secEle = createSecEle(sec, secNum, true);</span><br><span class="line">                secSettingsEle.appendChild(secEle);</span><br><span class="line">                secContentInputEle.value = &quot;&quot;;</span><br><span class="line">                checkSecNum();</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        setUpAddSecContentButton();</span><br><span class="line">        function setUpSaveWheelSettingsButton() &#123;</span><br><span class="line">            var wheelSettingsSubmitButton = document.getElementById(&quot;save-settings&quot;);</span><br><span class="line">            wheelSettingsSubmitButton.addEventListener(&quot;click&quot;, function() &#123;</span><br><span class="line">                updateWheelSettings();</span><br><span class="line">                render();</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        setUpSaveWheelSettingsButton();</span><br><span class="line">        function setUpSaveWheelTemplateButton() &#123;</span><br><span class="line">            var saveWheelTemplateButton = document.getElementById(&quot;save-template&quot;);</span><br><span class="line">            saveWheelTemplateButton.addEventListener(&quot;click&quot;, function() &#123;</span><br><span class="line">                var currentTemplateTitle = document.getElementById(&quot;wheel-title&quot;).value;</span><br><span class="line">                if (ws.hasTemplateWithTitle(currentTemplateTitle)) &#123;</span><br><span class="line">                    window.alert(&quot;转盘 &quot; + currentTemplateTitle + &quot; 已经存在，无法保存&quot;);</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    updateWheelSettings();</span><br><span class="line">                    ws.addTemplate(ws.getWheel());</span><br><span class="line">                    render();</span><br><span class="line">                    window.alert(&quot;转盘保存成功&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        setUpSaveWheelTemplateButton();</span><br><span class="line">        function setUpSelectWheelTemplate() &#123;</span><br><span class="line">            document.getElementById(&quot;select-wheel-template&quot;).addEventListener(&quot;change&quot;, function() &#123;</span><br><span class="line">                ws.useTemplateWithTitle(this.value);</span><br><span class="line">                render();</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        setUpSelectWheelTemplate();</span><br><span class="line">        function setUpFactoryReset() &#123;</span><br><span class="line">            document.getElementById(&apos;factory-reset&apos;).addEventListener(&quot;click&quot;, function() &#123;</span><br><span class="line">                if (window.confirm(&quot;您是否确定恢复出厂设置，所有保存的转盘也会被删除&quot;)) &#123;</span><br><span class="line">                    ws.reset();</span><br><span class="line">                    render();</span><br><span class="line">                    window.alert(&quot;恢复出厂设置成功&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        setUpFactoryReset();</span><br><span class="line">        function setUpRemoveTemplateButton() &#123;</span><br><span class="line">            document.getElementById(&apos;remove-wheel-template&apos;).addEventListener(&quot;click&quot;, function() &#123;</span><br><span class="line">                var currentTemplateTitle = document.getElementById(&quot;select-wheel-template&quot;).value;</span><br><span class="line">                if (window.confirm(&quot;您是否确定删除转盘 &quot; + currentTemplateTitle)) &#123;</span><br><span class="line">                    ws.removeTemplateByTitle(currentTemplateTitle);</span><br><span class="line">                    render();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        setUpRemoveTemplateButton();</span><br><span class="line">        function setUpShareLinkButton() &#123;</span><br><span class="line">            var shareLinkEle = document.getElementById(&quot;share-link&quot;);</span><br><span class="line">            document.getElementById(&apos;share-link-button&apos;).addEventListener(&quot;click&quot;, function() &#123;</span><br><span class="line">                shareLinkEle.innerText = window.location.origin</span><br><span class="line">                    + window.location.pathname</span><br><span class="line">                    + &apos;?wheel=&apos;</span><br><span class="line">                    + encodeURIComponent(JSON.stringify(ws.getWheel()));</span><br><span class="line">                copyToClipboard(&quot;share-link&quot;);</span><br><span class="line">                $(&apos;.alert&apos;).addClass(&apos;show&apos;)</span><br><span class="line">                setTimeout(function() &#123;</span><br><span class="line">                    $(&apos;.alert&apos;).removeClass(&apos;show&apos;)</span><br><span class="line">                &#125;, 1000);</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        setUpShareLinkButton();</span><br><span class="line">        // --------------------------- Wheel</span><br><span class="line">        function setSecElements() &#123;</span><br><span class="line">            // remove all child secs</span><br><span class="line">            var innerWheelEle = document.getElementById(&quot;inner-wheel&quot;);</span><br><span class="line">            while(innerWheelEle.hasChildNodes()) &#123;</span><br><span class="line">                innerWheelEle.removeChild(innerWheelEle.lastChild);</span><br><span class="line">            &#125;</span><br><span class="line">            // add all child secs</span><br><span class="line">            var secs = ws.getSecs();</span><br><span class="line">            for (var i = 0; i &lt; ws.getSecs().length; i++) &#123;</span><br><span class="line">                var sec = secs[i];</span><br><span class="line">                var secEle = document.createElement(&quot;div&quot;);</span><br><span class="line">                var secContentEle = document.createElement(&quot;div&quot;);</span><br><span class="line">                secEle.classList.add(&quot;sec&quot;);</span><br><span class="line">                secContentEle.classList.add(&quot;sec-content&quot;);</span><br><span class="line">                secContentEle.innerText = sec.content;</span><br><span class="line">                secEle.appendChild(secContentEle);</span><br><span class="line">                innerWheelEle.appendChild(secEle);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        function setSecStyle(secRatio, secIndex, secOffset) &#123;</span><br><span class="line">            var styleSheet = getStyleSheet(APP_NAME);</span><br><span class="line">            var secHalfWidth = 250 * Math.tan(secRatio * Math.PI);</span><br><span class="line">            var secColor = getColorFromPalette(DEFAULT_PALETTE, secIndex);</span><br><span class="line">            styleSheet.insertRule(&quot;#wheel div.sec &#123;&quot;</span><br><span class="line">                + &quot;  border-width: 250px &quot; + secHalfWidth + &quot;px 0;&quot;</span><br><span class="line">                + &quot;  transform-origin: &quot; + secHalfWidth + &quot;px 250px;&quot;</span><br><span class="line">                + &quot;  left: calc(50% - &quot; + secHalfWidth + &quot;px);&quot;</span><br><span class="line">                + &quot;&#125;&quot;, styleSheet.cssRules.length - 1);</span><br><span class="line">            styleSheet.insertRule(&apos;#wheel div.sec:nth-child(&apos; + secIndex + &apos;) &#123;&apos;</span><br><span class="line">                +&apos;  transform: rotate(&apos; + secOffset + &apos;deg);&apos;</span><br><span class="line">                +&apos;  border-color: &apos; + secColor +  &apos; transparent;&apos;</span><br><span class="line">                +&apos;&#125;&apos;, styleSheet.cssRules.length - 1)</span><br><span class="line">        &#125;</span><br><span class="line">        function setSecStyles() &#123;</span><br><span class="line">            var secs = ws.getSecs();</span><br><span class="line">            var secOffset = 0;</span><br><span class="line">            for (var i = 0; i &lt; secs.length; i++) &#123;</span><br><span class="line">                var sec = secs[i];</span><br><span class="line">                var secIndex = i + 1;</span><br><span class="line">                setSecStyle(sec.ratio, secIndex, secOffset);</span><br><span class="line">                secOffset += sec.ratio * 360;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        function renderSecs() &#123;</span><br><span class="line">            setSecElements();</span><br><span class="line">            setSecStyles();</span><br><span class="line">        &#125;</span><br><span class="line">        function renderWheelSettingsModal() &#123;</span><br><span class="line">            var wheelSettings = ws.getWheel();</span><br><span class="line">            // set wheel templates</span><br><span class="line">            var templates = ws.getTemplates();</span><br><span class="line">            var templateTitles = templates.map(function(template) &#123; return template.title &#125;);</span><br><span class="line">            var selectWheelTemplateEle = document.getElementById(&quot;select-wheel-template&quot;);</span><br><span class="line">            // remove current template elements</span><br><span class="line">            while (selectWheelTemplateEle.hasChildNodes()) &#123;</span><br><span class="line">                selectWheelTemplateEle.removeChild(selectWheelTemplateEle.lastChild);</span><br><span class="line">            &#125;</span><br><span class="line">            // add non-select element</span><br><span class="line">            var emptyValueOption = document.createElement(&quot;option&quot;);</span><br><span class="line">            emptyValueOption.value = &quot;-1&quot;;</span><br><span class="line">            emptyValueOption.innerText = &quot;未选择&quot;;</span><br><span class="line">            selectWheelTemplateEle.appendChild(emptyValueOption);</span><br><span class="line">            // add current template elements</span><br><span class="line">            for (var i = 0; i &lt; templateTitles.length; i++) &#123;</span><br><span class="line">                var templateTitle = templateTitles[i];</span><br><span class="line">                var templateEle = document.createElement(&quot;option&quot;);</span><br><span class="line">                if (templateTitle === wheelSettings.title) &#123; templateEle.selected = true; &#125;</span><br><span class="line">                templateEle.value = templateTitle;</span><br><span class="line">                templateEle.innerText = templateTitle;</span><br><span class="line">                selectWheelTemplateEle.appendChild(templateEle);</span><br><span class="line">            &#125;</span><br><span class="line">            // set wheel title</span><br><span class="line">            document.querySelector(&quot;input[name=wheel-title]&quot;).value = wheelSettings.title;</span><br><span class="line">            // set wheel mode</span><br><span class="line">            document.querySelector(&quot;input[name=wheel-mode]&quot;).value = wheelSettings.mode;</span><br><span class="line">            // set wheel secs</span><br><span class="line">            // 1. remove current secs</span><br><span class="line">            var secSettingsEle = document.getElementById(&quot;sec-settings&quot;);</span><br><span class="line">            while(secSettingsEle.hasChildNodes()) &#123; secSettingsEle.removeChild(secSettingsEle.lastChild); &#125;</span><br><span class="line">            // 2. add new secs</span><br><span class="line">            for (var i = 0; i &lt; wheelSettings.secs.length; i++) &#123;</span><br><span class="line">                var sec = wheelSettings.secs[i];</span><br><span class="line">                var isRemovable = i &gt;= MIN_SECS;</span><br><span class="line">                var secContainer = createSecEle(sec, i, isRemovable);</span><br><span class="line">                secSettingsEle.appendChild(secContainer);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        function updateWheelSettings() &#123;</span><br><span class="line">            var wheelMode = document.querySelector(&quot;input[name=wheel-mode]&quot;).value;</span><br><span class="line">            var wheelTitle = document.querySelector(&quot;input[name=wheel-title]&quot;).value;</span><br><span class="line">            // assemble wheel secs</span><br><span class="line">            var wheelSecs = [];</span><br><span class="line">            var wheelSecContents = Array.from(document.querySelectorAll(&quot;#sec-settings &gt; li &gt; div:first-child&quot;)).map(</span><br><span class="line">                function(secLi) &#123; return secLi.innerText; &#125;</span><br><span class="line">            );</span><br><span class="line">            for (var i = 0; i &lt; wheelSecContents.length; i++) &#123;</span><br><span class="line">                var content = wheelSecContents[i];</span><br><span class="line">                var ratio = 1 / wheelSecContents.length;</span><br><span class="line">                wheelSecs.push(&#123; content: content, ratio: ratio &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            ws.setWheel(&#123;</span><br><span class="line">                title: wheelTitle,</span><br><span class="line">                mode: wheelMode,</span><br><span class="line">                secs: wheelSecs</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        function renderSpinButton() &#123;</span><br><span class="line">            var title = ws.getTitle();</span><br><span class="line">            var styleSheet = getStyleSheet(APP_NAME);</span><br><span class="line">            styleSheet.insertRule(&quot;#spin:after &#123;&quot;</span><br><span class="line">                + &quot;  content: \&quot;&quot; + title + &quot;\&quot;;&quot;</span><br><span class="line">                + &quot;&#125;&quot;, styleSheet.cssRules.length - 1);</span><br><span class="line">        &#125;</span><br><span class="line">        function render() &#123;</span><br><span class="line">            renderSpinButton();</span><br><span class="line">            renderSecs();</span><br><span class="line">            renderWheelSettingsModal();</span><br><span class="line">        &#125;</span><br><span class="line">        render();</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《大转盘》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/02/demo/zhuanpan/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                wangdy
+            </a> 采用
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/02/27/demo/go开源项目/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="go开源项目">
+                        
+                        <span class="card-title">go开源项目</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            目录
+监控系统
+容器技术
+PaaS工具
+大数据
+微服务
+CI/CD
+数据库技术
+存储技术
+分布式系统
+消息系统
+服务器管理
+安全工具
+网络工具
+Web工具
+Web框架
+区块链技术
+其它
+
+监控系统
+
+
+项目
+简介
+
+
+
+OpenFalcon
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            wangdy
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/06/golang/操作excel文件/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="打开excel文件报错">
+                        
+                        <span class="card-title">打开excel文件报错</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            错误内容：zip: not a valid zip file正确✅使用golang的包：archive/zip
+包介绍：archive/zip包提供了zip归档文件的读写操作。在对zip包进行介绍之前，先说明一下zip和tar的区别。二者都
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            wangdy
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&nbsp;&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>&nbsp;基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>&nbsp;主题搭建
+            <br>
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="fa fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fa fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            <br>
+            <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+            <script>
+                var now = new Date();
+
+                function createtime() {
+                    var grt = new Date("09/01/2019 00:00:00");
+                    now.setTime(now.getTime() + 250);
+                    days = (now - grt) / 1000 / 60 / 60 / 24;
+                    dnum = Math.floor(days);
+                    hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+                    hnum = Math.floor(hours);
+                    if (String(hnum).length == 1) {
+                        hnum = "0" + hnum;
+                    }
+                    minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                    mnum = Math.floor(minutes);
+                    if (String(mnum).length == 1) {
+                        mnum = "0" + mnum;
+                    }
+                    seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                    snum = Math.round(seconds);
+                    if (String(snum).length == 1) {
+                        snum = "0" + snum;
+                    }
+                    document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+                    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+                }
+                setInterval("createtime()", 250);
+            </script>
+            
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

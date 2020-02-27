@@ -1,0 +1,1848 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="go开源项目, golang,linux,python,android">
+    <meta name="description" content="目录
+监控系统
+容器技术
+PaaS工具
+大数据
+微服务
+CI/CD
+数据库技术
+存储技术
+分布式系统
+消息系统
+服务器管理
+安全工具
+网络工具
+Web工具
+Web框架
+区块链技术
+其它
+
+监控系统
+
+
+项目
+简介
+
+
+
+OpenFalcon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>go开源项目 | 王先森</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+</head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">王先森</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">王先森</div>
+        <div class="logo-desc">
+            
+            坚持做一件事
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        go开源项目
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-02-27
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">监控系统</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF" target="_blank" rel="noopener">容器技术</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#paas%E5%B7%A5%E5%85%B7" target="_blank" rel="noopener">PaaS工具</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E5%A4%A7%E6%95%B0%E6%8D%AE" target="_blank" rel="noopener">大数据</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E5%BE%AE%E6%9C%8D%E5%8A%A1" target="_blank" rel="noopener">微服务</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#cicd" target="_blank" rel="noopener">CI/CD</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%80%E6%9C%AF" target="_blank" rel="noopener">数据库技术</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF" target="_blank" rel="noopener">存储技术</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">分布式系统</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F" target="_blank" rel="noopener">消息系统</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%A1%E7%90%86" target="_blank" rel="noopener">服务器管理</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7" target="_blank" rel="noopener">安全工具</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7" target="_blank" rel="noopener">网络工具</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#web%E5%B7%A5%E5%85%B7" target="_blank" rel="noopener">Web工具</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#web%E6%A1%86%E6%9E%B6" target="_blank" rel="noopener">Web框架</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF" target="_blank" rel="noopener">区块链技术</a></li>
+<li><a href="https://juejin.im/entry/5c00e5fce51d4550c76d9097#%E5%85%B6%E5%AE%83" target="_blank" rel="noopener">其它</a></li>
+</ul>
+<h1 id="监控系统"><a href="#监控系统" class="headerlink" title="监控系统"></a>监控系统</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fopen-falcon%2Fof-release" target="_blank" rel="noopener">OpenFalcon</a></td>
+<td>OpenFalcon是一款小米开源的监控系统。功能：数据采集免配置：agent自发现、支持Plugin、主动推送模式; 容量水平扩展：生产环境每秒50万次数据收集、告警、存储、绘图，可持续水平扩展。告警策略自发现：Web界面、支持策略模板、模板继承和覆盖、多种告警方式、支持回调动作。告警设置人性化：支持最大告警次数、告警级别设置、告警恢复通知、告警暂停、不同时段不同阈值、支持维护周期，支持告警合并。历史数据高效查询：秒级返回上百个指标一年的历史数据。Dashboard人性化：多维度的数据展示，用户自定义Dashboard等功能。架构设计高可用：整个系统无核心单点，易运维，易部署。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Feleme%2Fbanshee" target="_blank" rel="noopener">banshee</a></td>
+<td>周期性指标的监控系统.</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Finfluxdata%2Fkapacitor" target="_blank" rel="noopener">Kapacitor</a></td>
+<td>Kapacitor 是一个开源框架，用来处理、监控和警告时间序列数据。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Frach%2Fpome" target="_blank" rel="noopener">Pome</a></td>
+<td>Pome 是 Postgres Metrics 的意思。Pome 是一个 PostgreSQL 的指标仪表器，用来跟踪你的数据库的健康状况。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fpinggg%2Fpingd" target="_blank" rel="noopener">pingd</a></td>
+<td>pingd 是世界上最简单的监控服务，使用 golang 编写。软件支持 IPv6，但是服务器不支持. pingd 允许同时 ping 上千个 IPs，在此期间还可以管理监控的主机。用户提供主机名或者 IP，还有用户邮箱地址，就可以使用 3 个生成 URLs 来开启，停止或者删除你的追踪。每当你的服务器停机或者后台在线都会发送通知，还包含控制 URLs。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Factiontech%2Factiontech_zabbix_mysql_monitor" target="_blank" rel="noopener">actiontech zabbix mysql monitor</a></td>
+<td>percona monitoring plugins zabbix 的 Go 语言版本，是由 爱可生 公司开源的 MySQL 监控插件和模板，整合上百个性能监控指标，支持Low Level Discovery 自动发现多实例环境，支持performance_schema</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Frapidloop%2Frtop" target="_blank" rel="noopener">rtop</a></td>
+<td>top 是一个简单的无代理的远程服务器监控工具，基于 SSH 连接进行工作。无需在被监控的服务器上安装任何软件。rtop 直接通过 SSH 连接到待监控服务器，然后执行命令来收集监控数据。rtop 每几秒钟就自动更新监控数据，类似其他 *top 命令</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fprometheus%2Fprometheus" target="_blank" rel="noopener">Prometheus</a></td>
+<td>Prometheus 是一个开源的服务监控系统和时间序列数据库， 提供监控数据存储，展示，告警等功能</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fbosun-monitor%2Fbosun" target="_blank" rel="noopener">bosun</a></td>
+<td>专业的跨平台开源系统监控项目，go语言编写，灵活的模板和表达式配合上各种collector可以监控任何应用或系统级的运行数据，比 zabbix更轻量级、更易入手和更适合定制。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Furlooker" target="_blank" rel="noopener">urlooker</a></td>
+<td>监控web服务可用性及访问质量，采用go语言编写，易于安装和二次开发. 支持一下特性： 返回状态码检测; 页面响应时间检测; 页面关键词匹配检测; 带cookie访问; agent多机房部署，指定机房访问; 检测结果支持向open-falcon推送; 支持短信和邮件告警</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgravitational%2Fsatellite" target="_blank" rel="noopener">satellite</a></td>
+<td>用于监测kubernetes健康状态的一个工具／库。 其特点是：轻量级定期测试， 高可用性和弹性网络分区， 无单点故障， 以时间序列的格式存储监控数据。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fsourcegraph%2Fcheckup" target="_blank" rel="noopener">checkup</a></td>
+<td>一个分布式的无锁的站点健康状态检查工具。 支持检查http， tcp， dns等的状态 并可将结果保存在s3。 自带了一个美观的界面。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fkovetskiy%2Fzabbixctl" target="_blank" rel="noopener">zabbixctl</a></td>
+<td>Zabbixctl 是采用Zabbix服务API的命令行工具，它提供了有效的方式去查询和处理trigger 状态、主机最新数据和用户组。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcloudinsight%2Fcloudinsight-agent%2F" target="_blank" rel="noopener">cloudinsight-agent</a></td>
+<td>提供可视化监控的saas平台cloudinsight开源的一个监控客户端。 Cloudinsight 探针可以收集它所在操作系统的各种指标，然后发送到 Cloudinsight 后端服务</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FTalkingData%2Fowl" target="_blank" rel="noopener">owl</a></td>
+<td>OWL是TalkingData公司推出的一款开源分布式监控系统, 演示环境<a href="https://link.juejin.im/?target=http%3A%2F%2F54.223.127.87%2F%25EF%25BC%258C" target="_blank" rel="noopener">http://54.223.127.87/，</a>登录账号密码demo/demo</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgy-games%2Fsmartping" target="_blank" rel="noopener">SmartPing</a></td>
+<td>SmartPing为一个各机器(点)间间互PING检测工具，支持互PING，单向PING，绘制拓扑及报警功能。 系统设计为无中心化原则，所有的数据均存储自身点中，默认数据循环保留1个月时间，由自身点的数据绘制 出PING包 的状态，由各其他点的数据绘制 进PING包 的状态，并API接口获取其他点数据绘制整体PING拓扑图，拓扑图中存在报警功能。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgrafana%2Fgrafana" target="_blank" rel="noopener">Grafana</a></td>
+<td>Grafana 是一个用于监控指标分析和图表展示的工具， 后端支持 Graphite, InfluxDB &amp; Prometheus &amp; Open-falcon等， 它是一个流行的监控组件， 目前在各大中小型公司中广泛应用</td>
+</tr>
+</tbody></table>
+<h1 id="容器技术"><a href="#容器技术" class="headerlink" title="容器技术"></a>容器技术</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Falibaba%2Fpouch" target="_blank" rel="noopener">Pouch</a></td>
+<td>Pouch 是 Alibaba 公司开源的容器引擎技术，其主要功能包括基本的容器管理能力，安全稳定的强容器隔离能力，以及对应用无侵入性的富容器技术。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fdocker%2Fswarmkit" target="_blank" rel="noopener">SwarmKit</a></td>
+<td>SwarmKit 是Docker公司开源的Docker集群管理和容器编排工具，其主要功能包括节点发现、基于raft算法的一致性和任务调度等。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fdaolinet%2Fdaolinet" target="_blank" rel="noopener">DaoliNet</a></td>
+<td>DaoliNet是一个软件定义网络(SDN)系统，其设计目的是为Docker容器提供动态、高效的链接。在Docker容器中，微服务工作负载具有轻量且短暂的性质，DaoliNet恰好适用于这种性质。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fvmware%2Fharbor" target="_blank" rel="noopener">Harbor</a></td>
+<td>容器应用的开发和运行离不开可靠的镜像管理。从安全和效率等方面考虑，部署在私有环境内的Registry是非常必要的。Project Harbor是由VMware公司中国团队为企业用户设计的Registry server开源项目，包括了权限管理(RBAC)、LDAP、审计、管理界面、自我注册、HA等企业必需的功能，同时针对中国用户的特点，设计镜像复制和中文支持等功能</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Femccode%2Frexray" target="_blank" rel="noopener">REX-Ray</a></td>
+<td>REX-Ray 是一个 EMC {code} 团队领导的开源项目，为 Docker、Mesos 及其他容器运行环境提供持续的存储访问。其设计旨在囊括通用存储、虚拟化和云平台，提供高级的存储功能。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcoreos%2Fclair" target="_blank" rel="noopener">Clair</a></td>
+<td>Clair 是一个容器漏洞分析服务。它提供一个能威胁容器漏洞的列表，并且在有新的容器漏洞发布出来后会发送通知给用户。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fzettio%2Fweave" target="_blank" rel="noopener">Weave</a></td>
+<td>Weave 创建一个虚拟网络并连接到部署在多个主机上的 Docker 容器。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcoreos%2Frkt" target="_blank" rel="noopener">Rocket</a></td>
+<td>Rocket （也叫 rkt）是 CoreOS 推出的一款容器引擎，和 Docker 类似，帮助开发者打包应用和依赖包到可移植容器中，简化搭环境等部署工作。Rocket 和 Docker 不同的地方在于，Rocket 没有 Docker 那些为企业用户提供的“友好功能”，比如云服务加速工具、集群系统等。反过来说，Rocket 想做的，是一个更纯粹的业界标准。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fdocker%2Flibnetwork" target="_blank" rel="noopener">libnetwork</a></td>
+<td>Libnetwork 提供一个原生 Go 实现的容器连接，是容器的网络。libnetwork 的目标是定义一个健壮的容器网络模型（Container Network Model），提供一个一致的编程接口和应用程序的网络抽象。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fvishvananda%2Fwormhole" target="_blank" rel="noopener">Wormhole</a></td>
+<td>WWormhole 是一个能识别命名空间的由 Socket 激活的隧道代理。可以让你安全的连接在不同物理机器上的 Docker 容器。可以用来完成一些有趣的功能，例如连接运行在容器本机的服务或者在连接后创建按需的服务。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fshipyard%2Fshipyard" target="_blank" rel="noopener">Shipyard</a></td>
+<td>Shipyard 是一个基于 Web 的 Docker 管理工具，支持多 host，可以把多个 Docker host 上的 containers 统一管理；可以查看 images，甚至 build images；并提供 RESTful API 等等。 Shipyard 要管理和控制 Docker host 的话需要先修改 Docker host 上的默认配置使其支持远程管理。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fdocker%2Fdocker" target="_blank" rel="noopener">Docker</a></td>
+<td>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）。几乎没有性能开销,可以很容易地在机器和数据中心中运行。最重要的是,他们不依赖于任何语言、框架或包装系统。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fweaveworks%2Fscope" target="_blank" rel="noopener">scope</a></td>
+<td>一个docker&amp;kubernetes的管理，监控可视化工具， 可以看到容器间的拓扑关系和tcp通信</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcloud66%2Fhabitus" target="_blank" rel="noopener">habitus</a></td>
+<td>一个快速实现docker build 流程的工具， 支持复杂的docker build流程，实现多个dockerfile的build流程，典型应用如将需要静态编译的程序，如go， java这类程序在一个docker build编译好之后，得到的二进制包用到后续的build流程</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fk8sp%2Fsextant" target="_blank" rel="noopener">sextant</a></td>
+<td>sextant 提供了可以通过PXE全自动化安装初始化一个CoreOS+kubernetes集群。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=http%3A%2F%2Fgithub.com%2Fkubevirt%2Fkubevirt" target="_blank" rel="noopener">KubeVirt</a></td>
+<td>KubeVirt 是一个围绕 Kubernetes 构建的虚拟机管理架构。使用 KubeVirt 可声明：创建预定义的 VM，在 Kubernetes 集群上调度 VM（启动 VM，停止 VM，删除 VM）｜</td>
+</tr>
+</tbody></table>
+<h1 id="PaaS工具"><a href="#PaaS工具" class="headerlink" title="PaaS工具"></a>PaaS工具</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fkelproject" target="_blank" rel="noopener">Kel</a></td>
+<td>Kel 是一个开源的基于 Kubernetes 构建的 PaaS 系统，采用 Python 和 Go 语言开发。Kel 可简化管理 Web 应用发布和托管整个软件生命周期。Kel 帮助开发和运维人员轻松管理他们的应用架构，通过一组工具和组件让 K8S 使用非常简单。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fmesos%2Fcloudfoundry-mesos" target="_blank" rel="noopener">CloudFoundry-Mesos</a></td>
+<td>Cloud Foundry-Mesos框架由华为与Mesosphere的工程师合作完成，能够为应用提供安全可靠的、可伸缩、可扩展的云端运行环境，并且应用能够 享用Cloud Foundry生态圈内各类丰富的服务资源。企业能够通过Cloud Foundry开发云应用，并通过Cloud Foundry-Mesos将应用部署到DCOS上，使应用能够与DCOS上安装的其他服务及应用框架共享资源，实现资源利用率最大化，能够大幅降低企业 数据中心运营成本。DCOS能够运行在虚拟和物理环境上，能够支持Linux（以及很快支持Windows），并可适用于私有云、公有云及混合云环境。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgithub%2Fflynn" target="_blank" rel="noopener">Flynn</a></td>
+<td>Flynn 是一个开源的 PaaS 系统，由 Docker 开发。采用 Go 语言编写。支持数据库包括 Postgres、Redis 和 MongoDB. Flynn 使用完全组件化模块化的设计，任何一个组件和模块都可以独立的进行替换。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgit.oschina.net%2Fcnperl%2Fdinp-server" target="_blank" rel="noopener">DINP</a></td>
+<td>DINP是又一个基于Docker开发的PaaS平台。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fkubernetes%2Fkubernetes" target="_blank" rel="noopener">Kubernetes</a></td>
+<td>Kubernetes 是来自 Google 云平台的开源容器集群管理系统。基于 Docker 构建一个容器的调度服务。该系统可以自动在一个容器集群中选择一个工作容器供使用。其核心概念是 Container Pod。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Ftsuru%2Ftsuru" target="_blank" rel="noopener">Tsuru</a></td>
+<td>在 Tsuru 的 PaaS 服务下，你可以选择自己的编程语言，选择使用 SQL 或者 NoSQL 数据库，memcache、redis、等等许多服务，甚至与你可以使用 Git 版本控制工具来上传你应用。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fooyala%2Fatlantis" target="_blank" rel="noopener">atlantis</a></td>
+<td>Atlantis 是一款基于 Docker，使用 Go 编写，为 HTTP 应用准备的开源 PaaS。Atlantis 可以在路由请求中轻松的构建和部署应用到容器。Atlantis 在 Ooyala 的新应用中得到了很广泛的应用。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Flaincloud%2Flain" target="_blank" rel="noopener">lain</a></td>
+<td>Lain 是一个基于 docker 的 PaaS 系统。其面向技术栈多样寻求高效运维方案的高速发展中的组织，devops 人力缺乏的 startup ，个人开发者。统一高效的开发工作流，降低应用运维复杂度；在 IaaS / 私有 IDC 裸机的基础上直接提供应用开发，集成，部署，运维的一揽子解决方案。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fweibocom%2Fopendcp" target="_blank" rel="noopener">OpenDCP</a></td>
+<td>OpenDCP是一个基于Docker的云资源管理与调度平台，集镜像仓库、多云支持、服务编排、服务发现等功能与一身，支持服务池的扩缩容，其技术体系源于微博用于支持节假日及热点峰值流量的弹性调度DCP系统。OpenDCP允许利用公有云服务器搭建起适应互联网应用的IT基础设施，并且将运维的工作量降到最低。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=http%3A%2F%2Fgithub.com%2FDataman-Cloud%2Fswan" target="_blank" rel="noopener">Swan</a></td>
+<td>Swan 是一个基于 mesos 的新 HTTP API，使用 golang 开发。你可以使用 swan 在 mesos 集群上部署应用程序，并管理应用程序的整个生命周期，还可以使用新版本进行滚动更新，扩展应用程序，并且可以在应用程序或服务不可用时对应用程序和自动故障转移进行运行状况检查。</td>
+</tr>
+</tbody></table>
+<h1 id="大数据-amp-ML"><a href="#大数据-amp-ML" class="headerlink" title="大数据&amp;ML"></a>大数据&amp;ML</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fhuichen%2Fmlf" target="_blank" rel="noopener">MLF</a></td>
+<td>弥勒佛项目是一个大数据机器学习框架。具有为处理大数据优化，可随业务增长scale up，模型的训练和使用都可以作为library或者service整合到在生产系统中，具有丰富的模型，高度可扩展，高度可读性，适合初学者进行大数据模型的学习等特点</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fchrislusf%2Fglow" target="_blank" rel="noopener">Glow</a></td>
+<td>glow 是使用 Go 编写的易用分布式计算系统，是 Hadoop Map Reduce，Spark，Flint，Samza 等等的替代品。Glow 的目标是提供一个库，可以在并行线程或者分布式集群机器中进行更简单计算。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcdipaolo%2Fgoml" target="_blank" rel="noopener">goml</a></td>
+<td>机器学习的库, 包含了许多工具，能让你以在线方式学习其频道的数据内容。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fsjwhitworth%2Fgolearn" target="_blank" rel="noopener">Golearn</a></td>
+<td>GoLearn实现了熟悉的Scikit-learn 适应/预测界面，可实现快速预估测试和交换。GoLearn是一个成熟的项目，它提供了交叉验证和训练/测试等辅助功能。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fchewxy%2Fgorgonia" target="_blank" rel="noopener">Gorgonia</a></td>
+<td>这个机器学习资料库完全是用Go语言编写而成，据其开发者“chewxy”称能“ 提供动态建立神经网络及相关算法必需条件 。”</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FQihoo360%2Fposeidon" target="_blank" rel="noopener">poseidon</a></td>
+<td>Poseidon 系统是一个日志搜索平台，可以在数百万亿条、数百PB大小的日志数据中快速分析和检索特定字符串。该系统可以应用于任何结构化或非结构化海量(从万亿到千万亿规模)数据的查询检索需求)。</td>
+</tr>
+</tbody></table>
+<h1 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fmicro%2Fmicro" target="_blank" rel="noopener">micro</a></td>
+<td>Micro是一个专注于简化分布式系统开发的微服务生态系统。可插拔的插件化设计，提供强大的可插拔的架构来保证基础组件可以被灵活替换。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fkoding%2Fkite" target="_blank" rel="noopener">kite</a></td>
+<td>一个基于go语言的微服务框架, Kite是Koding公司内部的一个框架, 该框架提供服务发现，多种认证功能，服务端通过RPC进行通信，同时还提供了websocket的js库，方便浏览器于服务器间进行通信。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgoadesign%2Fgoa" target="_blank" rel="noopener">goa</a></td>
+<td>Goa 是一款用 Go 用于构建微服务的框架，采用独特的设计优先的方法。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgo-kit%2Fkit" target="_blank" rel="noopener">Go-kit</a></td>
+<td>Go-kit 是一个 Go 语言的分布式开发包，用于开发微服务。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fandot%2Fhprose" target="_blank" rel="noopener">Hprose</a></td>
+<td>Hprose 是高性能远程对象服务引擎（High Performance Remote Object Service Engine）的缩写 —— 微服务首选引擎。它是一个先进的轻量级的跨语言跨平台面向对象的高性能远程动态通讯中间件。它不仅简单易用，而且功能强大。你只需要稍许的时间去学习，就能用它轻松构建跨语言跨平台的分布式应用系统了。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FNYTimes%2Fgizmo" target="_blank" rel="noopener">Gizmo</a></td>
+<td>纽约时报开源的go微服务工具.提供如下特性:标准化配置和日志;可配置策略的状态监测端点;用于管理 pprof 端点和日志级别的配置;结构化日志，提供基本请求信息;端点的有用度量;优雅的停止服务; 定义期待和词汇的基本接口</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fafex%2Fhystrix-go" target="_blank" rel="noopener">hystrix-go</a></td>
+<td>用来隔离远程系统调用， 第三方库调用 ，服务调用， 提供熔断机制，避免雪崩效应的库， Hystrix的go 版本。 注Hystrixs是Netflix开源的一个java库</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Ffagongzi%2Fgateway" target="_blank" rel="noopener">gateway</a></td>
+<td>Gateway是一个使用go实现的基于HTTP的API 网关。<strong>特性</strong> ：API 聚合 ; 流控; 熔断; 负载均衡; 健康检查; 监控; 消息路由; 后端管理WebUI . <strong>能做什么</strong>：规划更友好的URL给调用者。聚合多个API的结果返回给API调用者，利于移动端，后端可以实现原子接口。保护后端API服务不会被突发异常流量压垮。提供熔断机制，使得后端API Server具备自我恢复能力。借助消息路由能力，实现灰度发布，AB测试。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FeBay%2Ffabio" target="_blank" rel="noopener">fabio</a></td>
+<td>fabio 是 ebay 团队用 golang 开发的一个快速、简单零配置能够让 consul 部署的应用快速支持 http(s) 的负载均衡路由器。这里有一篇中文文章<a href="https://link.juejin.im/?target=http%3A%2F%2Fdockone.io%2Farticle%2F1567%25E4%25BB%258B%25E7%25BB%258D%25E4%25BA%2586%25E5%25A6%2582%25E4%25BD%2595%25E7%2594%25A8fabio%25EF%25BC%258Bconsul%25E5%25AE%259E%25E7%258E%25B0%25E6%259C%258D%25E5%258A%25A1%25E5%258F%2591%25E7%258E%25B0%25EF%25BC%258C%25E8%25B4%259F%25E8%25BD%25BD%25E5%259D%2587%25E8%25A1%25A1%25EF%25BC%258C%25E5%25B9%25B6%25E9%2598%2590%25E8%25BF%25B0%25E4%25BA%2586%25E5%258E%259F%25E7%2590%2586%25EF%25BC%258C" target="_blank" rel="noopener">dockone.io/article/156…</a> 最后还有demo程序</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fsourcegraph%2Fappdash" target="_blank" rel="noopener">appdash</a></td>
+<td>go版本的分布式应用跟踪系统， 基于google dapper的原理构建</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fuber%2Fjaeger" target="_blank" rel="noopener">Jaeger</a></td>
+<td>Jaeger是Uber的分布式跟踪系统 ，基于google dapper的原理构建， 以Cassandra作为存储层</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgoodrain%2Frainbond" target="_blank" rel="noopener">Rainbond</a></td>
+<td>云帮是一款以应用为中心的开源PaaS，深度整合Kubernetes的容器管理和Service Mesh微服务架构最佳实践，满足支撑业务高速发展所需的敏捷开发、高效运维和精益管理需求</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fistio%2Fistio" target="_blank" rel="noopener">istio</a></td>
+<td>Istio是由Google、IBM和Lyft开源的微服务管理、保护和监控框架。使用istio可以很简单的创建具有负载均衡、服务间认证、监控等功能的服务网络，而不需要对服务的代码进行任何修改。</td>
+</tr>
+</tbody></table>
+<h1 id="CI-CD"><a href="#CI-CD" class="headerlink" title="CI/CD"></a>CI/CD</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcaicloud%2Fcyclone" target="_blank" rel="noopener">Cyclone</a></td>
+<td>Cyclone 是一个打造容器工作流的云原生持续集成持续发布平台，简单易用，使用 Go 语言开发，有详尽的中文文档</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fdrone%2Fdrone" target="_blank" rel="noopener">Drone</a></td>
+<td>Drone 是一个基于 Docker 的持续发布平台，使用 Go 语言开发</td>
+</tr>
+</tbody></table>
+<h1 id="数据库技术"><a href="#数据库技术" class="headerlink" title="数据库技术"></a>数据库技术</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fsiddontang%2Fledisdb" target="_blank" rel="noopener">LedisDB</a></td>
+<td>ledisdb是一个参考ssdb，采用go实现，底层基于leveldb，类似redis的高性能nosql数据库，提供了kv，list，hash以及zset数据结构的支持。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fblog.zhnytech.com%2Farticles%2F2016%2F07%2F13%2Fgithub.com%2Ftidwall%2Fbuntdb" target="_blank" rel="noopener">BuntDB</a></td>
+<td>是纯Go开发的、低层级的（low-level）的、可嵌入的key/value内存数据库（IMDB），数据持久化存储，遵从ACID，支持自定义索引和geospatial 数据。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcockroachdb%2Fcockroach" target="_blank" rel="noopener">Cockroach</a></td>
+<td>CockroachDB (蟑螂数据库）是一个可伸缩的、支持地理位置处理、支持事务处理的数据存储系统。CockroachDB 提供两种不同的的事务特性，包括快照隔离（snapshot isolation，简称SI）和顺序的快照隔离（SSI）语义，后者是默认的隔离级别。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Faacanakin" target="_blank" rel="noopener">qb-go</a></td>
+<td>qb是用来让使更容易使用数据库的go语言的数据库工具包。它受Python最喜欢的ORM SQLAlchemy的启发，既是一个ORM，也是一个查询生成器。它在表达api和查询构建东西的情形下是相当模块化的。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgoshawkdb" target="_blank" rel="noopener">GoshawkDB</a></td>
+<td>GoshawkDB 是一个采用 Go 语言开发支持多平台的分布式的对象存储服务，支持事务以及容错。GoshawkDB 的事务控制是在客户端完成的。GoshawkDB 服务器端使用 AGPL 许可，而 Go 语言客户端使用 Apache 许可证</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fwandoulabs%2Fcodis" target="_blank" rel="noopener">Codis</a></td>
+<td>Codis 是一个分布式 Redis 解决方案, 对于上层的应用来说, 连接到 Codis Proxy 和连接原生的 Redis Server 没有明显的区别 (不支持的命令列表), 上层应用可以像使用单机的 Redis 一样使用, Codis 底层会处理请求的转发, 不停机的数据迁移等工作, 所有后边的一切事情, 对于前面的客户端来说是透明的, 可以简单的认为后边连接的是一个内存无限大的 Redis 服务.</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgoogle%2Fcayley" target="_blank" rel="noopener">Cayley</a></td>
+<td>Cayley 是 Google 的一个开源图(Graph)数据库，其灵感来自于 Freebase 和 Google 的 Knowledge Graph 背后的图数据库。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgaryburd%2Fredigo" target="_blank" rel="noopener">Redigo</a></td>
+<td>Redigo 是 Redis 数据库的 Go 客户端。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fmediocregopher%2Fradix.v2" target="_blank" rel="noopener">radix.v2</a></td>
+<td>radix.v2是redis官方推荐的客户端之一，相比于redigo,radix.v2特点是轻量、接口实现优雅、API友好</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fchasex%2Fredis-go-cluster" target="_blank" rel="noopener">redis-go-cluster</a></td>
+<td>redis-go-cluster 是基于 Redigo 实现的 Golang Redis 客户端。redis-go-cluster 可以在本地缓存 slot 信息，并且当集群修改的时候会自动更新。此客户端管理每个节点连接池，使用 goroutine 来尽可能的并发执行，达到了高效，低延迟。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Folivere%2Felastic" target="_blank" rel="noopener">elastic</a></td>
+<td>elastic是开源搜索引擎elasticsearch的golang客户端，API友好，支持绝大部分es的接口,支持的es版本全面，从1.x到最新的6.x全覆盖</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fdgraph-io%2Fdgraph" target="_blank" rel="noopener">Dgraph</a></td>
+<td>dgraph 是可扩展的，分布式的，低延迟图形数据库。DGraph 的目标是提供 Google 生产水平的规模和吞吐量，在超过TB的结构数据里，未用户提供足够低延迟的实时查询。DGraph 支持 GraphQL 作为查询语言，响应 JSON。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fdegdb%2Fdegdb" target="_blank" rel="noopener">DegDB</a></td>
+<td>DegDB 是分布式的经济图数据库。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fyoutube%2Fvitess" target="_blank" rel="noopener">Vitess</a></td>
+<td>outube出品的开源分布式MySQL工具集Vitess，自动分片存储MySQL数据表，将单个SQL查询改写为分布式发送到多个MySQL Server上，支持行缓存（比MySQL本身缓存效率高），支持复制容错，已用于Youtube生产环境</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fsun8911879%2Fxuncache" target="_blank" rel="noopener">xuncache</a></td>
+<td>xuncache 是免费开源的NOSQL(内存数据库) 采用golang开发,简单易用而且 功能强大(就算新手也完全胜任)、性能卓越能轻松处理海量数据,可用于缓存系统.</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fsosedoff%2Fpgweb" target="_blank" rel="noopener">pgweb</a></td>
+<td>gweb 是一个采用 Go 语言开发的基于 Web 的 PostgreSQL 管理系统。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Foutbrain%2Forchestrator" target="_blank" rel="noopener">Orchestrator</a></td>
+<td>MySQL 复制拓扑可视化工具</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fhidu%2Fmysql-schema-sync" target="_blank" rel="noopener">mysql-schema-sync</a></td>
+<td>mysql-schema-sync 是一款使用go开发的、跨平台的、绿色无依赖的 MySQL 表结构自动同步工具。用于将线上(其他环境)数据库结构变化同步到测试（本地）环境!</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fpingcap%2Ftidb" target="_blank" rel="noopener">TiDB</a></td>
+<td>TiDB 是国内 PingCAP 团队开发的一个分布式 SQL 数据库。其灵感来自于 Google 的 F1, TiDB 支持包括传统 RDBMS 和 NoSQL 的特性。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fflike%2Fkingshard" target="_blank" rel="noopener">kingshard</a></td>
+<td>一个高性能的mysql中间件， 支持读写分离， 数据分片， 安全审计等功能</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Finfluxdata%2Finfluxdb" target="_blank" rel="noopener">influxdb</a></td>
+<td>一个可以水平扩展的时间序列数据库， 内建http api， 支持对数据打tag，灵活的查询策略和数据的实时查询，支持类sql语句进行查询</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=http%3A%2F%2Fgithub.com%2Fnim4%2FDBShield" target="_blank" rel="noopener">DBShield</a></td>
+<td>DBShield 是用 Go 语言开发的数据库防火墙，用来保护你的数据免受 SQL 注入的侵扰。支持的数据库包括：DB2、MySQL、MariaDB、Oracle、PostgreSQL。</td>
+</tr>
+</tbody></table>
+<h1 id="存储技术"><a href="#存储技术" class="headerlink" title="存储技术"></a>存储技术</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcoreos%2Ftorus" target="_blank" rel="noopener">Torus</a></td>
+<td>Torus是一种针对容器集群量身打造的存储系统，可以为通过Kubernetes编排和管理的容器集群提供可靠可扩展的存储。这是继etcd、rkt、flannel，以及CoreOS Linux之后CoreOS发布的另一个开源产品。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fspf13%2Fafero" target="_blank" rel="noopener">Afero</a></td>
+<td>Afero 是一个文件系统框架，提供一个简单、统一和通用的 API 和任何文件系统进行交互，作为抽象层还提供了界面、类型和方法。Afero 的界面十分简洁，设计简单，舍弃了不必要的构造函数和初始化方法。Afero 作为一个库还提供了一组可交互操作的后台文件系统，这样在与 Afero 协作时，还可以保留 os 和 ioutil 软件包的功能和好处。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Femccode%2Frexray" target="_blank" rel="noopener">REX-Ray</a></td>
+<td>REX-Ray 是一个 EMC {code} 团队领导的开源项目，为 Docker、Mesos 及其他容器运行环境提供持续的存储访问。其设计旨在囊括通用存储、虚拟化和云平台，提供高级的存储功能。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fchrislusf%2Fseaweedfs" target="_blank" rel="noopener">SeaweedFS</a></td>
+<td>SeaweedFS 是简单，高伸缩性的分布式文件系统，包含两部分：存储数十亿的文件；快速为文件服务。SeaweedFS 作为支持全 POSIX 文件系统语义替代，Seaweed-FS 选择仅实现 key-file 的映射，类似 “NoSQL”，也可以说是 “NoFS”。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FTerry-Mao%2Fbfs" target="_blank" rel="noopener">bfs</a></td>
+<td>bfs 是使用 Go 编写的分布式文件系统（小文件存储）。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fipfs%2Fgo-ipfs" target="_blank" rel="noopener">IPFS</a></td>
+<td>IPFS 是分布式文件系统，寻求连接所有计算机设备的相同文件系统。在某些方面，这很类似于原始的 Web 目标，但是 IPFS 最终会更像单个比特流群交换的 git 对象。IPFS ＝ InterPlanetary File System</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgostor%2Fgotgt" target="_blank" rel="noopener">Gotgt</a></td>
+<td>Gotgt 是使用 Go 编写的高性能、可扩展的 iSCSI target 服务。</td>
+</tr>
+</tbody></table>
+<h1 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fkelseyhightower" target="_blank" rel="noopener">Confd</a></td>
+<td>Confd是一个轻量级的配置管理工具。通过查询Etcd，结合配置模板引擎，保持本地配置最新，同时具备定期探测机制，配置变更自动reload。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fhuichen%2Fzerg" target="_blank" rel="noopener">zerg</a></td>
+<td>基于docker的分布式爬虫服务</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fyoutube%2Fdoorman" target="_blank" rel="noopener">Doorman</a></td>
+<td>Doorman 是一个客户端速率限制的解决方案，客户端与共享资源进行通讯，包括数据库、gRPC 服务、RESTful API 等等可使用 Doorman 来限制对资源的调用。Doorman 使用 Go 语言开发，使用 gRPC 的通讯协议。其高可用特性需要一个分布式的锁管理器，当前支持 etcd，也可使用 Zookeeper 替代。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fpurpleidea%2Fmgmt" target="_blank" rel="noopener">mgmt</a></td>
+<td>mgmt 是一个分布式的，事件驱动的配置管理工具。该工具支持并行执行，其 librarification 作为新的及已存在的软件的基础管理工具。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fnanopack%2Fyoke" target="_blank" rel="noopener">Yoke</a></td>
+<td>Yoke 是 Postgres 的高可用集群，具有自动切换和自动集群恢复。Postgres冗余/自动故障转移解决方案，提供一个高可用PostgreSQL集群的简单管理。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fchrislusf%2Fseaweedfs" target="_blank" rel="noopener">SeaweedFS</a></td>
+<td>SeaweedFS 是简单，高伸缩性的分布式文件系统，包含两部分：存储数十亿的文件；快速为文件服务。SeaweedFS 作为支持全 POSIX 文件系统语义替代，Seaweed-FS 选择仅实现 key-file 的映射，类似 “NoSQL”，也可以说是 “NoFS”。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fchrislusf%2Fglow" target="_blank" rel="noopener">Glow</a></td>
+<td>Glow 是使用 Go 编写的易用分布式计算系统，是 Hadoop Map Reduce，Spark，Flint，Samza 等等的替代品。Glow 的目标是提供一个库，可以在并行线程或者分布式集群机器中进行更简单计算。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fhashicorp%2Fnomad" target="_blank" rel="noopener">Nomad</a></td>
+<td>Nomad 是一个集群管理器和调度器，专为微服务和批量处理工作流设计。Nomad 是分布式，高可用，可扩展到跨数据中心和区域的数千个节点。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fsilenceper%2Fdcmp" target="_blank" rel="noopener">dcmp</a></td>
+<td>DCMP是分布式配置管理平台。提供了一个etcd的管理界面，可通过界面修改配置信息，借助confd可实现配置文件的同步。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fchrislusf%2Fgleam" target="_blank" rel="noopener">gleam</a></td>
+<td>此处是一个通过Go和LuaJIT编写的快速和可扩展的分布式map/reduce系统，很好的将Go的高并发性与Luajit高性能相结合，可独立运行或用于分布式计算。</td>
+</tr>
+</tbody></table>
+<h1 id="消息系统"><a href="#消息系统" class="headerlink" title="消息系统"></a>消息系统</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fblackbeans%2Fkiteq" target="_blank" rel="noopener">KiteQ</a></td>
+<td>KiteQ 是一个基于 go + protobuff 实现的多种持久化方案的 mq 框架（消息队列）。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fbitly%2Fnsq" target="_blank" rel="noopener">NSQ</a></td>
+<td>NSQ 是无中心设计、节点自动注册和发现的开源消息系统。可作为内部通讯框架的基础，易于配置和发布。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fkingsoft-wps%2Fkingtask" target="_blank" rel="noopener">kingtask</a></td>
+<td>kingtask是一个由Go开发的轻量级的异步定时任务系统。支持定时的异步任务。 支持失败重试机制，重试时刻和次数可自定义。 任务执行结果可查询。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FRichardKnop%2Fmachinery" target="_blank" rel="noopener">Go Machinery</a></td>
+<td>Machinery 是一个 Go 语言的异步任务队列和作业队列，基于分布式消息传递。类似 Python 的 Celery 框架。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fscottkiss%2Fkaca" target="_blank" rel="noopener">kaca</a></td>
+<td>kaca 是用 golang 语言开发的基于 websocket 协议的消息发布/订阅系统。</td>
+</tr>
+</tbody></table>
+<h1 id="服务器管理"><a href="#服务器管理" class="headerlink" title="服务器管理"></a>服务器管理</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fsquare%2Fsharkey" target="_blank" rel="noopener">Sharkey</a></td>
+<td>Sharkey 是OpenSSH管理证书使用的服务。Sharkey 分为客户端组件和服务端组件，服务端负责发布已签署的主机证书，客户端负责在机器上安装主机证书。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fidcos%2Fosinstall" target="_blank" rel="noopener">OSinstall</a></td>
+<td>CloudBoot”(OSinstall)云装机平台，是金融云初创公司杭州云霁科技推出的一款X86服务器全自动装机工具，遵循Apache协议，完全开源免费。全自动构建物理机资源池，像创建虚拟机一样方便的安装物理机。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fkarfield%2Fssh2go" target="_blank" rel="noopener">ssh2go</a></td>
+<td>ssh2go 是对libssh的golang 封装。libssh是SSH的代码库，同时支持服务端和客户端，日常所见的ssh, sshd, scp, sftp均基于libssh。ssh2go是对libssh的Go语言绑定， 100%的libssh接口都可用，同时集成示例，方便参考。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fscottkiss%2Fgooverssh" target="_blank" rel="noopener">Gooverssh</a></td>
+<td>gooverssh 是基于gosshtool的一个ssh开发包开发的一个基于ssh本地端口转发服务小应用，可以方便突破一些网络限制，如通过ssh代理访问内网数据库服</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fscottkiss%2Fgosshtool" target="_blank" rel="noopener">gosshtool</a></td>
+<td>gosshtool provide some useful functions for ssh client in golang.implemented using golang.org/x/crypto/ssh.go语言中提供ssh相关操作，支持ssh本地端口转发服务</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgravitational%2Fteleport" target="_blank" rel="noopener">teleport</a></td>
+<td>teleport 是 初创公司Gravitational 的一款基于ssh和https的远程管理linux 集群服务器的工具， 其特点是支持双重校验登陆；操作记录回放；session共享，便于协作排障；自动发现集群的服务器和容器</td>
+</tr>
+</tbody></table>
+<h1 id="安全工具"><a href="#安全工具" class="headerlink" title="安全工具"></a>安全工具</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fsheepbao%2Fgomitmproxy" target="_blank" rel="noopener">gomitmproxy</a></td>
+<td>GomitmProxy是想用golang语言实现的mitmproxy，主要实现http代理，目前实现了http代理和https抓包功能。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fxiam%2Fhyperfox" target="_blank" rel="noopener">Hyperfox</a></td>
+<td>Hyperfox 是一个安全的工具用来代理和记录局域网中的 HTTP 和 HTTPS 通讯。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fyahoo%2Fgryffin" target="_blank" rel="noopener">Gryffin</a></td>
+<td>Gryffin 是雅虎开发的一个大规模 Web 安全扫描平台。它不是另外一个扫描器，其主要目的是为了解决两个特定的问题 —— 覆盖率和伸缩性。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Finconshreveable%2Fngrok" target="_blank" rel="noopener">ngrok</a></td>
+<td>ngrok 是一个反向代理，通过在公共的端点和本地运行的 Web 服务器之间建立一个安全的通道。ngrok 可捕获和分析所有通道上的流量，便于后期分析和重放。</td>
+</tr>
+</tbody></table>
+<h1 id="网络工具"><a href="#网络工具" class="headerlink" title="网络工具"></a>网络工具</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fdaolinet%2Fdaolinet" target="_blank" rel="noopener">DaoliNet</a></td>
+<td>DaoliNet是一个软件定义网络(SDN)系统，其设计目的是为Docker容器提供动态、高效的链接。在Docker容器中，微服务工作负载具有轻量且短暂的性质，DaoliNet恰好适用于这种性质。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgoogle%2Fseesaw" target="_blank" rel="noopener">Seesaw</a></td>
+<td>Seesaw 是 Google 开源的一个基于 Linux 的负载均衡系统。Seesaw 包含基本的负载均衡特性，同时支持一些高级的功能，诸如：anycast, Direct Server Return (DSR), 支持多个 VLANs 和集中式配置。同时其设计的宗旨是易于维护。需要注意的是，尽管该项目挂靠在 Google 名下，但并非 Google 官方产品。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FGameXG%2FTcpRoute2" target="_blank" rel="noopener">TcpRoute2</a></td>
+<td>TcpRoute, TCP 层的路由器。对于 TCP 连接自动从多个线路(允许任意嵌套)、多个域名解析结果中选择最优线路。TcpRoute2 是 golang 重写的版本。通过 socks5 代理协议对外提供服务。代理功能拆分成了独立的库，详细代理url格式级选项请参见 ProxyClient，目前支持直连、socks4、socks4a、socks5、http、https、ss 代理线路</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fbuger%2Fgor" target="_blank" rel="noopener">Gor</a></td>
+<td>Gor 是用 Go 编写的简单 HTTP 流量复制工具，主要是为了从生产服务器返回流量到开发环境。使用 Gor 可以在实际的用户会话中测试代码。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcontainous%2Ftraefik" target="_blank" rel="noopener">Traefik</a></td>
+<td>Træfɪk 是一个新型的http反向代理、负载均衡软件，能轻易的部署微服务. 它支持多种后端 (Docker, Swarm, Mesos/Marathon, Consul, Etcd, Zookeeper, BoltDB, Rest API, file…) ,可以对配置进行自动化、动态的管理.</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fuber%2Ftchannel" target="_blank" rel="noopener">TChannel</a></td>
+<td>TChannel 是用于 RPC 的网络复用和成帧协议。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fjpillora%2Fgo-tcp-proxy" target="_blank" rel="noopener">go-tcp-proxy</a></td>
+<td>go-tcp-proxy是一个简单的tcp代理， 可以用于tcp端口转发， 也可以用做http代理使用</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fmehrdadrad%2Fmylg" target="_blank" rel="noopener">myLG</a></td>
+<td>myLG是一个开源的网络工具集，它包含了很多不同类型的网络诊断工具, 功能包括ping，trace， bgp， dns lookup， 端口扫描， 局域网网络发现，提供web界面, tcpdump等</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcyfdecyf%2Fcow" target="_blank" rel="noopener">cow</a></td>
+<td>COW 是一个简化穿墙的 HTTP 代理服务器。它能自动检测被墙网站，仅对这些网站使用二级代理；支持多种协议：sock5、http、shadow、cow</td>
+</tr>
+</tbody></table>
+<h1 id="Web工具"><a href="#Web工具" class="headerlink" title="Web工具"></a>Web工具</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Flonelycode%2Ftyk" target="_blank" rel="noopener">Tyk</a></td>
+<td>Tyk 是一个开源的、轻量级的、快速可伸缩的 API 网关，支持配额和速度限制，支持认证和数据分析，支持多用户多组织，提供全 RESTful API。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fandyxning%2Fshortme" target="_blank" rel="noopener">Shortme</a></td>
+<td>用Golang编写的URL短链接服务。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fhuichen%2Fwukong" target="_blank" rel="noopener">WuKongSearch</a></td>
+<td>WuKong 是一个全文搜索引擎。功能特性有：高效索引和搜索（1M条微博500M数据28秒索引完，1.65毫秒搜索响应时间，19K搜索QPS）；支持中文分词（使用sego分词包并发分词，速度27MB/秒）；支持计算关键词在文本中的紧邻距离（token proximity）；支持计算BM25相关度；支持自定义评分字段和评分规则；支持在线添加、删除索引；支持持久存储；可实现分布式索引和搜索等</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fhenrylee2cn%2Fpholcus" target="_blank" rel="noopener">Pholcus</a></td>
+<td>Pholcus（幽灵蛛）是一款纯Go语言编写的高并发、分布式、重量级爬虫软件，支持单机、服务端、客户端三种运行模式，拥有Web、GUI、命令行三种操作界面；规则简单灵活、批量任务并发、输出方式丰富（mysql/mongodb/csv/excel等）、有大量Demo共享；同时她还支持横纵向两种抓取模式，支持模拟登录和任务暂停、取消等一系列高级功能。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcodetainerapp%2Fcodetainer" target="_blank" rel="noopener">Codetainer</a></td>
+<td>Codetainer 可以让你创建基于浏览器上的代码运行沙箱，可方便的嵌入到你的 Web 应用中。你可以把它当成是 codepicnic.com 的开源克隆) .</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fyudai%2Fgotty" target="_blank" rel="noopener">GoTTY</a></td>
+<td>GoTTY 是个简单的命令行工具，可以把 CLI 工具共享成 Web 应用。GoTTY 可以把终端作为 Web 应用共享。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgizak%2Ftermui" target="_blank" rel="noopener">TermUI</a></td>
+<td>Go语言编写的终端仪表盘</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fetsy%2Fhound" target="_blank" rel="noopener">Hound</a></td>
+<td>快如闪电的代码搜索开源工具</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FTerry-Mao%2Fgoim" target="_blank" rel="noopener">goim</a></td>
+<td>goim 是一个支持集群的im及实时推送服务（支持websocket，http和tcp协议）</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fvalyala%2Ffasthttp" target="_blank" rel="noopener">fasthttp</a></td>
+<td>asthttp 是 Go 的快速 HTTP 实现，当前在 1M 并发的生产环境使用非常成功，可以从单个服务器进行 100K qps 的持续连接。HTTP 服务器性能与 net/http 比较，fasthttp 比 net/http 快 10 倍</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fga0%2Fnetgraph" target="_blank" rel="noopener">netgraph</a></td>
+<td>netgraph 是一个 Go 语言编写的跨平台的 B/S 架构的 HTTP 抓包工具，方便在 Linux 服务器上直接查看 HTTP 包。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcodeskyblue%2Fgohttp" target="_blank" rel="noopener">gohttp</a></td>
+<td>gohttp是一个http的文件服务器，功能有：各种文件的预览功能，实时的目录zip打包下载，二维码扫描下载的支持，苹果应用的在线安装，文件上传等</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fhidu%2Fapi-front" target="_blank" rel="noopener">API-front</a></td>
+<td>API front是 HTTP API 前端，可进行请求代理转发、协议抓包分析、流量复制。主要是用于开发测试环境,用来解决开发测试环境多变等问题</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Ftus" target="_blank" rel="noopener">esumable file uploads</a></td>
+<td>实现文件上传的断点续传功能， 整套功能包含了协议实现，client， server。 client及server有多种语言的实现包括go， python， node等｜</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fhidu%2Fpproxy" target="_blank" rel="noopener">pproxy</a></td>
+<td>http抓包代理程序,http协议调试工具</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fafex%2Fhystrix-go" target="_blank" rel="noopener">hystrix-go</a></td>
+<td>用来隔离远程系统调用， 第三方库调用 ，服务调用， 提供熔断机制，避免雪崩效应的库， Hystrix的go 版本。 注Hystrixs是Netflix开源的一个java库</td>
+</tr>
+</tbody></table>
+<h1 id="Web框架"><a href="#Web框架" class="headerlink" title="Web框架"></a>Web框架</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fkataras%2Firis" target="_blank" rel="noopener">Iris-Go</a></td>
+<td>通过Iris-Go，可以方便的帮助你来开发基于web的应用。简单来说：Iris-Go与国内大牛的BeeGo类似，但从其官方介绍的资料来看，Iris-Go的性能更优！</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgo-baa%2Fbaa" target="_blank" rel="noopener">Baa</a></td>
+<td>Baa 一个简单高效的Go web开发框架。主要有路由、中间件，依赖注入和HTTP上下文构成。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Forivil%2Forivil" target="_blank" rel="noopener">Orivil</a></td>
+<td>Orivil 是由 golang 开发的全新 web 框架，灵感来源于 Laravel 及 Symfony。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Ftim1020%2Fecgo" target="_blank" rel="noopener">ecgo</a></td>
+<td>ecgo 是一个易学、易用、易扩展的go web开发框架</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgin-gonic%2Fgin" target="_blank" rel="noopener">Gin</a></td>
+<td>Gin 是一个用 Go 语言开发的 Web 框架，提供类 Martini 的 API，但是性能更好。因为有了 httprouter 性能提升了 40 倍之多。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Folahol%2Fmelody" target="_blank" rel="noopener">Melody</a></td>
+<td>Melody 是一个 Go 语言的微型 WebSocket 框架，基于 github.com/gorilla/websocket 开发，</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgernest%2Futron" target="_blank" rel="noopener">utron</a></td>
+<td>utron 是一个 Go 语言轻量级的 MVC 框架，用于快速构建可伸缩以及可靠的数据库驱动的 Web 应用。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Flessgo%2Flessgo" target="_blank" rel="noopener">Lessgo</a></td>
+<td>Lessgo 是一款 Go 语言编写的简单、稳定、高效、灵活的 web 完全开发框架。它的项目组织形式经过精心设计，实现前后端分离、系统与业务分离，完美兼容MVC与MVVC等多种开发模式，非常利于企业级应用与API接口的开发。当然，最值得关注的是它突破性地支持了运行时路由重建，开发者可在Admin后台轻松实现启用/禁用模块与操作，添加/移除中间件等功能！同时，它推荐以HandlerFunc与MiddlewareFunc为基础的函数式编程，也令开发变得更加灵活富有趣味性。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fwho246%2Fhopen" target="_blank" rel="noopener">Hopen</a></td>
+<td>Golang web极速开发框架。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fhenrylee2cn%2Ffaygo" target="_blank" rel="noopener">Faygo</a></td>
+<td>Faygo 是一款快速、简洁的Go Web框架，可用极少的代码开发出高性能的Web应用程序（尤其是API接口）。只需定义 struct Handler，Faygo 就能自动绑定、验证请求参数并生成在线API文档。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fastaxie%2Fbeego" target="_blank" rel="noopener">beego</a></td>
+<td>beego是一个用Go开发的应用框架，思路来自于tornado，路由设计来源于sinatra，</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Frobfig%2Frevel" target="_blank" rel="noopener">Revel</a></td>
+<td>Revel 是 Go 语言的框架，其思路完全来自 Java 的 Play Framework。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcodegangsta%2Fmartini" target="_blank" rel="noopener">Martini</a></td>
+<td>Martini 是一个非常新的 Go 语言的 Web 框架，使用 Go 的 net/http 接口开发，类似 Sinatra 或者 Flask 之类的框架，你可使用自己的 DB 层、会话管理和模板。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Flunny%2Ftango" target="_blank" rel="noopener">Tango</a></td>
+<td>Tango，微内核可扩展的Go语言Web框架。同时支持函数和结构体作为执行体，插件丰富。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgo-macaron%2Fmacaron" target="_blank" rel="noopener">Macaron</a></td>
+<td>Macaron 是一个具有高生产力和模块化设计的 Go Web 框架。框架秉承了 Martini 的基本思想，并在此基础上做出高级扩展。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fhoisie%2Fweb" target="_blank" rel="noopener">Web.go</a></td>
+<td>web.go 跟 web.py 类似，但使用的是 Go 编程语言实现的 Web 应用开发框架。Go发布没多久该框架就诞生了，差不多是最早的Go框架。目前已经有段时间没有更新了。不过，该框架代码不多，其源码可以读一读。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Flabstack%2Fecho" target="_blank" rel="noopener">Echo</a></td>
+<td>Echo 是个快速的 HTTP 路由器（零动态内存分配），也是 Go 的微型 Web 框架。</td>
+</tr>
+</tbody></table>
+<h1 id="区块链技术"><a href="#区块链技术" class="headerlink" title="区块链技术"></a>区块链技术</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fhyperledger%2Ffabric" target="_blank" rel="noopener">fabric</a></td>
+<td>Fabric是一个开源区块链实现，开发环境建立在VirtualBox虚拟机上，部署环境可以自建网络，也可以直接部署在BlueMix上，部署方式可传统可docker化，共识达成算法插件化，支持用Go和JavaScript开发智能合约，尤以企业级的安全机制和membership机制为特色。你要是不知道这些术语什么意思，就记住一点，Fabric之于区块链，很可能正如Hadoop之于大数据。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fethereum%2Fgo-ethereum" target="_blank" rel="noopener">go-ethereum</a></td>
+<td>go-ethereum客户端通常被称为geth，它是个命令行界面，执行在Go上实现的完整以太坊节点。通过安装和运行geth，可以参与到以太坊前台实时网络并进行以下操作：a. 挖掘真的以太币 b. 在不同地址间转移资金 c .创建合约，发送交易 d . 探索区块历史 e.很多其他功能</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fchain%2Fchain" target="_blank" rel="noopener">chain</a></td>
+<td>*<em>金融领域的区块链项目 *</em>. Chain是由一家刚成立两年的美国创业公司Chain推出，是一个企业级的区块链平台架构，可以让机构构造从零开始更好的金融服务。Chain 开放标准在以下方面实现突破：• 全新的共识模型在不到一秒的时间里实现交易的最终完成，即便是交易量非常大也能支持;• 私密解决方案对区块链数据进行加密，并让相关对手方和监管者进行有选择的读取;• 智能合约框架和虚拟机支持简单的规则执行，以及进行键值存储的图灵完整程序; • 可伸缩的数据模型可以为网络参与者降低运行负荷; • 丰富的元数据层可支持满足KYC（了解你的客户）和 AML（反洗钱）要求</td>
+</tr>
+</tbody></table>
+<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fxjdrew%2Fkone" target="_blank" rel="noopener">kone</a></td>
+<td>可用于家庭或者企业网络的透明代理，可用来翻墙等</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fjaxi%2Fkoderunr" target="_blank" rel="noopener">KodeRunr</a></td>
+<td>KodeRunr (读作 code runner) 是款我在闲暇时间用Go语言编写的应用。顾名思义，你可以用它在网页上、命令行里写程序，贴代码，与此同时无需在本地安装任何编程语言。支持Ruby, Python, GO, Swift, C, Elixir等</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Ftim1020%2Fgodaemon" target="_blank" rel="noopener">godaemon</a></td>
+<td>godaemon是用来为应用增加daemon和graceful的。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgolang%2Fmobile" target="_blank" rel="noopener">Gomobile</a></td>
+<td>Gomobile是一个应用于iOS和Android的优秀跨平台开发库，为开发者提供用于创建Android和iOS 移动平台代码的工具。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fyanyiwu%2Fgojieba" target="_blank" rel="noopener">gojieba</a></td>
+<td>“结巴”中文分词的Golang语言版本。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Frafael-santiago%2Fcherry" target="_blank" rel="noopener">Cherry</a></td>
+<td>Cherry 是一个使用 Go 语言开发的 Web 聊天引擎。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fmailslurper%2Fmailslurper" target="_blank" rel="noopener">MailSlurper</a></td>
+<td>MailSlurper 是一个便携的 SMTP 邮件服务器，对本地和团队应用开发来说非常有用。MailSlurper 体积小运行快速，支持 SQLite, MSSQL 和 MySQL. 数据库。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Frobustirc%2Frobustirc" target="_blank" rel="noopener">RobustIRC</a></td>
+<td>RobustIRC 是不会有网络中断情况的 IRC。RobustIRC 主要特性：服务器不可用的时候不会有网络中断； 可以使用标准 IRC 客户端； 健壮，可以很好处理客户端和网络的连接问题</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fqor%2Fqor" target="_blank" rel="noopener">Qor</a></td>
+<td>Qor 是基于 Golang 开发的的CMS 一系列工具库，基于 Qor可以快速搭建网站的后台管理系统。Qor 的工作库包含：1，后台管理：可以对数据库进去 CURD 管理，支持一对一，一对多，多对多关联关系维护等等； 2，支持上传图片到云以及 filesystem，resize、crop 图片等等 ；3，Publish 发布系统，可以修改数据，并且经过检查后，再发布到正式环境中； 4，状态机，可以用于开发工作流的系统； 5，I18n，翻译，可以通过在 WEB 界面翻译，并将翻译保存到数据库中； 6，L10n，本地化，不同于翻译，他可以针对某个地区来对内容，或者数据结构进行本地化。7，Roles，权限管理； 8，Exchange，通过 Excel，CSV 导入导出数据； 9，Worker，后台任务管理，可用于跑定时任务等等</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Foikomi%2FFishChatServer" target="_blank" rel="noopener">FishChat</a></td>
+<td>FishChat（鱼传——鱼传尺素）分布式可伸缩 IM 服务器，是一款纯 golang 编写优秀的即时通讯软件(IM), 它集合了市面上已有产品的优点, 并具备 智能硬件网关管理(学习QQ物联思想, 构思中)。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fmikespook%2Fgorbac" target="_blank" rel="noopener">goRBAC</a></td>
+<td>goRBAC 为 Go 语言应用提供了轻量级的基于角色的访问控制。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Frakyll%2Fhey" target="_blank" rel="noopener">hey</a></td>
+<td>Boom 是 google 一女工程师使用 Go 语言开发的类似 apache ab 的性能测试工具。相比 ab，boom跨平台性更好，而且更容易安装。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fmattermost%2Fplatform" target="_blank" rel="noopener">Mattermost</a></td>
+<td>mattermost 是一个 Slack 的开源替代品。Mattermost 采用 Go 语言开发，这是一个开源的团队通讯服务。为团队带来跨 PC 和移动设备的消息、文件分享，提供归档和搜索功能。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fprasmussen%2Fglot" target="_blank" rel="noopener">glot</a></td>
+<td>glot 是可以可以在线运行各种编程语言代码片段的平台，项目采用 Haskell Script 、Go、Erlang 和 Shell 开发，运行环境基于 Docker 容器进行。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgetlantern%2Flantern" target="_blank" rel="noopener">Lantern</a></td>
+<td>Lantern是一个点对点科学上网软件。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fvzex%2Fdog-tunnel" target="_blank" rel="noopener">dog-tunnel</a></td>
+<td>狗洞是一个高速的 P2P 端口映射工具，同时支持Socks5代理。 0.5版后开始开源，UDP底层基于开源库KCP重写，效率大大提高，在恶劣环境下优势明显。 同时提供非P2P版本（Lite版本），两端连接过程完全不依赖中间服务器，支持加密和登陆认证，自动重连，但是需要人为确保两端能正常连通（否则请使用默认的P2P版本）</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgrpc" target="_blank" rel="noopener">GRPC</a></td>
+<td>GRPC 是一个高性能、开源和通用的 RPC 框架，面向移动和 HTTP/2 设计。目前提供 C、Java 和 Go 语言版本，分别是：grpc, grpc-java, grpc-go. 其中 C 版本支持 C, C++, Node.js, Python, Ruby, Objective-C, PHP 和 C# 支持.GRPC 基于 HTTP/2 标准设计，带来诸如双向流、流控、头部压缩、单 TCP 连接上的多复用请求等特。这些特性使得其在移动设备上表现更好，更省电和节省空间占用。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fvisualfc%2Fliteide" target="_blank" rel="noopener">LiteIDE</a></td>
+<td>LiteIDE是一款开源、跨平台的轻量级Go语言集成开发环境（IDE）。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fyinghuocho%2Ffirefly-proxy" target="_blank" rel="noopener">firefly-proxy</a></td>
+<td>穿墙工具。 GFW梯子。 提供客户端和服务端。支持多个平台， 包括linux， macos， windows ，android</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fshanzi%2Fwu%2F" target="_blank" rel="noopener">wu</a></td>
+<td>一个监听文件变化并自动执行某些操作的小工具 ，可以用于配置修改后自动重启web server</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fapex%2Fapex" target="_blank" rel="noopener">apex</a></td>
+<td>管理，部署aws lambda函数的工具， 支持用go语言编写lambda函数（注：目前aws官方不支持用go语言编写lambda函数，但是apex却可以变相支持）</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fcodeskyblue%2Fgosuv" target="_blank" rel="noopener">gosuv</a></td>
+<td>进程管理， 类似于python的supervisord ， 提供了web管理界面</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2FNetflix%2Fchaosmonkey" target="_blank" rel="noopener">chaosmonkey</a></td>
+<td>Chaos Monkey是netflix公司开源的一个用于服务可用性测试的工具，通过有计划的在生产系统制造真实的故障（如cpu负载高， 内存溢出，磁盘写满，服务器宕机等）来检测系统的可用性。</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fshotdog%2Fscheduler" target="_blank" rel="noopener">scheduler</a></td>
+<td>scheduler专门进行任务的调度分发任务工作，各个任务的具体任务执行分配到各个项目中， 从而达到对任务的统一配置和管理。 该工具提供了web管理界面</td>
+</tr>
+<tr>
+<td><a href="https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fgohugoio%2Fhugo" target="_blank" rel="noopener">hugo</a></td>
+<td>Hugo是由Go语言实现的静态网站生成器；简单、易用、高效、易扩展、快速部署；相比于Hexo、Jekyll，hugo的优势是生成速度极快。</td>
+</tr>
+</tbody></table>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《go开源项目》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/02/27/demo/go开源项目/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                wangdy
+            </a> 采用
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/02/27/databases/redis监控与代理/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="redis监控与代理">
+                        
+                        <span class="card-title">redis监控与代理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            三个常见开源代理服务：codis： github.com/CodisLabs/codispredixy： github.com/joyieldInc/predixytwemproxy：github.com/twitter/twemproxy
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            wangdy
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/12/02/demo/zhuanpan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="大转盘">
+                        
+                        <span class="card-title">大转盘</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            大转盘
+zhuanpan
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            wangdy
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/h5/" target="_blank">
+                        <span class="chip bg-color">h5</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&nbsp;&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>&nbsp;基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>&nbsp;主题搭建
+            <br>
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="fa fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fa fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            <br>
+            <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+            <script>
+                var now = new Date();
+
+                function createtime() {
+                    var grt = new Date("09/01/2019 00:00:00");
+                    now.setTime(now.getTime() + 250);
+                    days = (now - grt) / 1000 / 60 / 60 / 24;
+                    dnum = Math.floor(days);
+                    hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+                    hnum = Math.floor(hours);
+                    if (String(hnum).length == 1) {
+                        hnum = "0" + hnum;
+                    }
+                    minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+                    mnum = Math.floor(minutes);
+                    if (String(mnum).length == 1) {
+                        mnum = "0" + mnum;
+                    }
+                    seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+                    snum = Math.round(seconds);
+                    if (String(snum).length == 1) {
+                        snum = "0" + snum;
+                    }
+                    document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+                    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+                }
+                setInterval("createtime()", 250);
+            </script>
+            
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
