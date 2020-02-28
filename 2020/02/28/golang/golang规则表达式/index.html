@@ -4,10 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="golang,linux,python,android">
-    <meta name="description" content="1、File-&amp;gt;Project Struct，选择Artifacts
-2、创建build
-点击+，选择JAR，选择From modules…选择Module，选择要打包的项目选择Main Class，选择项目入口类选择JAR file">
+    <meta name="keywords" content="在复杂多变的业务中使用规则表达式, golang,linux,python,android">
+    <meta name="description" content="不废话，直接上demo，实际应用中需要考虑的因素比较多，结合具体情况吧。
+package main
+
+import (
+    &amp;quot;fmt&amp;quot;
+    &amp;quot;time&amp;quot;
+
+    &amp;quot;github.c">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>王先森</title>
+    <title>在复杂多变的业务中使用规则表达式 | 王先森</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -262,13 +267,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        
+                        在复杂多变的业务中使用规则表达式
                     </div>
                 </div>
             </div>
@@ -390,7 +395,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-27
+                    2020-02-28
                 </div>
 
                 
@@ -406,14 +411,62 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1、File-&gt;Project Struct，选择Artifacts</p>
-<p>2、创建build</p>
-<p>点击+，选择JAR，选择From modules…<br>选择Module，选择要打包的项目<br>选择Main Class，选择项目入口类<br>选择JAR files from libraries，不选择extract to the target JAR，而是选择 copy to the output directory and link via manifest，否则没有依赖文件与清单<br>之后可以选择Directory for META-INF/MANIFEST.MF，这里会自动生成一个路径,但是不能选，建议选择项目的根目录<br>选完后点OK<br>这里的Output directory是jar导出的目录，自己选择<br>勾选Build on make或者Include in…，点击apply，点击OK</p>
-<p>3、导出jar</p>
-<p>菜单栏下，点击Build，点击Build Artifacts，选择导出的项目，点击Build，会将jar导出到之前第二步的Output directory目录下</p>
-<p>4、执行jar</p>
-<p>在jar包当前目录：java -jar xxx.jar</p>
+                <p>不废话，直接上demo，实际应用中需要考虑的因素比较多，结合具体情况吧。</p>
+<pre><code>package main
 
+import (
+    &quot;fmt&quot;
+    &quot;time&quot;
+
+    &quot;github.com/antonmedv/expr&quot;
+    &quot;github.com/antonmedv/expr/vm&quot;
+)
+
+func main() {
+    var programs []*vm.Program
+    for _, ruleExpr := range ruleExprList {
+        p1, err := expr.Compile(ruleExpr, expr.Env(ruleFunc))
+        if err != nil {
+            fmt.Println(err)
+            continue
+        }
+        programs = append(programs, p1)
+    }
+
+    for _, program := range programs {
+        ruleFunc.RequestContext = RequestContext{Time: time.Now()}
+        output, err := vm.Run(program, ruleFunc)
+        fmt.Println(&quot;run:&quot;, output, err)
+    }
+}
+
+var ruleExprList = []string{
+    &quot;NowStr(RequestContext)&quot;,
+    &quot;Config.Id&quot;,
+}
+
+var ruleFunc = &amp;RuleContext{
+    NowStr: Now,
+    Config:Config,
+}
+
+type RuleContext struct {
+    RequestContext
+    NowStr func(RequestContext) interface{}
+    Config map[string]int64
+}
+
+type RequestContext struct {
+    time.Time
+}
+
+func Now(req RequestContext) interface{} {
+    return req.Time
+}
+
+var  Config = map[string]int64{
+    &quot;Id&quot;:111,
+}</code></pre>
             </div>
             <hr/>
 
@@ -571,9 +624,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《》
+                    《在复杂多变的业务中使用规则表达式》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/02/27/java/idea导出jar包/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/02/28/golang/golang规则表达式/" property="cc:attributionName"
                rel="cc:attributionURL">
                 wangdy
             </a> 采用
@@ -613,31 +666,37 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/27/ide/安装ide/">
+                <a href="/2020/02/28/golang/golang规则表达式/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="在复杂多变的业务中使用规则表达式">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">在复杂多变的业务中使用规则表达式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、下载：    jetbrains
-2、按需要选择下载
+                            不废话，直接上demo，实际应用中需要考虑的因素比较多，结合具体情况吧。
+package main
 
+import (
+    &quot;fmt&quot;
+    &quot;time&quot;
+
+    &quot;github.c
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -646,6 +705,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -656,7 +716,7 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/27/java/mac安装gradle/">
+                <a href="/2020/02/27/server/服务器环境构建/">
                     <div class="card-image">
                         
                         
@@ -668,11 +728,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、首先安装java环境，这个就略了
-2、下载gradle ，下载最好下载all版本的
-3、配置环境：解压包，放到自己喜欢的目录下，把bin目录添加到环境变量中：
-open -e .bash_profile
-GRADLE_HOME=/Use
+                            1、购买服务器，因为阿里云比腾讯云贵，所以买了腾讯云2、使用命令登录：ssh -p 22 root@xxx.xxx ，确定后输入密码    注意：    1、配置公钥后密码就不用输入了    2、-p 22 是默认的，可以不写，如果换端口就
                         
                     </div>
                     <div class="publish-info">
