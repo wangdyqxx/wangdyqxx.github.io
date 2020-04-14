@@ -811,7 +811,7 @@ tcp传输的是数据流，而udp是数据包，tcp会进过三次握手，udp�
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/27/golang/golang开源blog收集/">
+                <a href="/2020/02/27/golang/易错点/">
                     <div class="card-image">
                         
                         
@@ -823,9 +823,10 @@ tcp传输的是数据流，而udp是数据包，tcp会进过三次握手，udp�
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            go实现的开源博客收集1、https://github.com/go-chinese-site/dreamgo    //demo
-2、https://github.com/wangsongyan/wblog  //demo
-3、https
+                            1、在函数返回参数中已定义error变量，在if中内层重新定义了error，这会导致return返回的是外层的error
+func foo(x string) (ret int, err error) {
+    if true {
+   
                         
                     </div>
                     <div class="publish-info">

@@ -4,8 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="python的demo使用, golang,linux,python,android">
-    <meta name="description" content="在执行py文件时，可以使用python + 文件名来执行，也可以赋予权限来./+文件名来执行（chmod a+x xxx.py)，但是如果py文件开头没有python注释的话会报错，是因为解释器用的shell的，所以要在开头添加#!/usr">
+    <meta name="keywords" content="笔记、blog收集, golang,linux,python,android">
+    <meta name="description" content="1、https://shengxinjing.cn2、https://github.com/lubanproj/grpc_read
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>python的demo使用 | 王先森</title>
+    <title>笔记、blog收集 | 王先森</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        python的demo使用
+                        笔记、blog收集
                     </div>
                 </div>
             </div>
@@ -388,7 +389,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-27
+                    2020-04-07
                 </div>
 
                 
@@ -404,26 +405,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在执行py文件时，可以使用python + 文件名来执行，也可以赋予权限来./+文件名来执行（chmod a+x xxx.py)，但是如果py文件开头没有python注释的话会报错，是因为解释器用的shell的，所以要在开头添加#!/usr/bin/env python注释</p>
-<p>在写py文件时，有的文件开头有两种注释：</p>
-<pre><code>#!/usr/bin/python 或 #!/usr/bin/env python</code></pre><p>虽然最后的作用是一样的，但还是有区别的，前者的意思是去/usr/bin/目录下找python去执行，后者的意思是在#!/usr/bin/env中找python的安装路径，然后执行，<br>不管python的软链接是不是在/usr/bin下，前者是绝对路径，只能去/usr/bin下找，所以推荐使用 #!/usr/bin/env python<br>解决中文输出的问题，应该在第二行制定编码位utf-8，在py脚本开头来指定运行环境和编码：</p>
-<pre><code>#!/usr/bin/env python
-#--coding:utf-8--</code></pre><p>可以设置默认注释：<br>点击：pycharm - preferences - editor - file and code templates - files - python script<br>将以下内容填进去，点击apply - ok，结束</p>
-<pre><code># !/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @File  : ${NAME}.py
-# @Site  : ${SITE}
-# @Author: xxx（自己的）
-# @contact : xxx（自己的）
-# @time  : ${DATE} ${TIME}
-# @Desc  :</code></pre><p>创建一个py文件，加上默认的注释<br>输入：</p>
-<pre><code># 输出用print()函数
-print(&quot;哈喽，这是中文😆。&quot;)
-print(100+200)
-
-# 输入用input()函数（接收的是字符串）
-str = input(&quot;请输入：&quot;)
-print(&quot;输入内容:&quot;,str)</code></pre><p>运行py文件（python xxx.py)，后随意输入一些内容，敲回车即可</p>
+                <p>1、<a href="https://shengxinjing.cn" target="_blank" rel="noopener">https://shengxinjing.cn</a><br>2、<a href="https://github.com/lubanproj/grpc_read" target="_blank" rel="noopener">https://github.com/lubanproj/grpc_read</a></p>
 
             </div>
             <hr/>
@@ -582,9 +564,9 @@ print(&quot;输入内容:&quot;,str)</code></pre><p>运行py文件（python xxx.
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《python的demo使用》
+                    《笔记、blog收集》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/02/27/python/helloword/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/04/07/demo/blog收集/" property="cc:attributionName"
                rel="cc:attributionURL">
                 wangdy
             </a> 采用
@@ -624,29 +606,31 @@ print(&quot;输入内容:&quot;,str)</code></pre><p>运行py文件（python xxx.
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/27/python/python包管理/">
+                <a href="/2020/04/07/demo/blog收集/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="笔记、blog收集">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">笔记、blog收集</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、使用pip安装包，使用那个包安装那个包就行；2、使用anaconda 管理用Python时经常用到很多第三方库，例如Pillow、MySQL驱动，Web框架Flask、Django，科学计算Numpy等。用pip一个一个安装费时费力，还
+                            1、https://shengxinjing.cn2、https://github.com/lubanproj/grpc_read
+
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -655,6 +639,7 @@ print(&quot;输入内容:&quot;,str)</code></pre><p>运行py文件（python xxx.
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -665,26 +650,25 @@ print(&quot;输入内容:&quot;,str)</code></pre><p>运行py文件（python xxx.
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/27/python/mac安装python/">
+                <a href="/2020/04/06/golang/golang命令/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="golang自带命令">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">golang自带命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            mac自带了py2.x的版本，现在要安装py3.x，并把/usr/bin下的python软链接改掉，不然用起来不方便
-1.安装前检查终端输入python，如果能进入py交互界面，可以看下版本，自带的是2.x，输入exit() 退出
-2.安装
+                            1、 查看汇编代码    1go tool compile -S slice.go
+
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-06
                             </span>
                         <span class="publish-author">
                             
