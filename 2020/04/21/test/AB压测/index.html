@@ -4,8 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="go mod命令, golang,linux,python,android">
-    <meta name="description" content="gomod文件初始化：go mod init找到项目依赖并导入：go mod tidy安装指定版本：go mod edit -require=path@version更新依赖版本：go get -u github.com/gookit/fi">
+    <meta name="keywords" content="ab压测简单使用, golang,linux,python,android">
+    <meta name="description" content="基本用法: ab -n 1000 -c 100 -p ‘post.txt’ -T ‘application/json’ ‘http://test.ipalfish.com/klian/ugc/picvideo/video/statistic">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>go mod命令 | 王先森</title>
+    <title>ab压测简单使用 | 王先森</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +260,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        go mod命令
+                        ab压测简单使用
                     </div>
                 </div>
             </div>
@@ -388,7 +388,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-27
+                    2020-04-21
                 </div>
 
                 
@@ -404,11 +404,76 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>gomod文件初始化：go mod init<br>找到项目依赖并导入：go mod tidy<br>安装指定版本：go mod edit -require=path@version<br>更新依赖版本：go get -u github.com/gookit/filter =&gt;<br>安装包到项目vendor：go mod vender<br>使用replace：</p>
-<pre><code>replace (
-    golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2 =&gt; github.com/golang/crypto  v0.0.0-20190308221718-c2843e01d9a2
-)</code></pre><p>打印模块依赖图：go mod graph<br>使用mod下载：go mod download<br>清除缓存：go clean -modcache</p>
+                <p>基本用法:<br> ab -n 1000 -c 100 -p ‘post.txt’ -T ‘application/json’ ‘<a href="http://test.ipalfish.com/klian/ugc/picvideo/video/statistics/set&#39;" target="_blank" rel="noopener">http://test.ipalfish.com/klian/ugc/picvideo/video/statistics/set&#39;</a> &gt;&gt;test.txt</p>
+<p>上面的测试用例表示100并发的情况下，共测试访问1000次，并将测试结果保存到test.txt文件中。</p>
+<h3 id="数据结果分析"><a href="#数据结果分析" class="headerlink" title="数据结果分析"></a>数据结果分析</h3><pre><code>ab -n 全部请求数 -c 并发数 测试url
+例:ab -n 1000 -c 50 http://www.newdev.gztest.com/
+Server Software:         Microsoft-IIS/7.0
+Server Hostname:        www.newdev.gztest.com
+Server Port:            80
+Document Path:         
+Document Length:        82522 bytes  #请求文档大小
 
+Concurrency Level:      50           #并发数  
+Time taken for tests:   92.76140 seconds #全部请求完成耗时
+Complete requests:      10000          #全部请求数
+Failed requests:        1974           #失败的请求
+  (Connect: 0, Length: 1974, Exceptions: 0)
+Write errors:           0
+Total transferred:      827019400 bytes   #总传输大小 
+HTML transferred:       825219400 bytes //整个场景中的HTML内容传输量
+Requests per second:    108.61 [#/sec] (mean)   #每秒请求数(平均)//大家最关心的指标之一，相当于 LR 中的每秒事务数，后面括号中的 mean 表示这是一个平均值
+Time per request:       460.381 [ms] (mean)   #每次并发请求时间(所有并发) //大家最关心的指标之二，相当于 LR 中的平均事务响应时间，后面括号中的 mean 表示这是一个平均值
+Time per request:       9.208 [ms] (mean, across all concurrent requests)   #每一请求时间(并发平均)  //每个请求实际运行时间的平均值
+Transfer rate:          8771.39 [Kbytes/sec] received    #传输速率//平均每秒网络上的流量，可以帮助排除是否存在网络流量过大导致响应时间延长的问题
+Percentage of the requests served within a certain time (ms)
+  50%   2680
+  66%   2806
+  75%   2889
+  80%   2996
+  90%  11064
+  95%  20161
+  98%  21092
+  99%  21417
+ 100%  21483 (longest request)
+//整个场景中所有请求的响应情况。在场景中每个请求都有一个响应时间，其中50％的用户响应时间小于2680毫秒，60％ 的用户响应时间小于2806毫秒，最大的响应时间小于21417毫秒
+由于对于并发请求，cpu实际上并不是同时处理的，而是按照每个请求获得的时间片逐个轮转处理的，所以基本上第一个Time per request时间约等于第二个Time per request时间乘以并发请求数。
+
+Connection Times (ms)    #连接时间
+             min  mean[+/-sd] median   max
+Connect(#连接):        0    0   2.1      0      46
+Processing(#处理):    31  458  94.7    438    1078
+Waiting(#等待):       15  437  87.5    422     938
+Total:         31  458  94.7    438    1078
+
+
+其它参数:
+
+-n requests     全部请求数
+-c concurrency  并发数
+-t timelimit    最传等待回应时间
+-p postfile     POST数据文件
+-T content-type POST Content-type
+-v verbosity    How much troubleshooting info to print
+-w              Print out results in HTML tables
+-i              Use HEAD instead of GET
+-x attributes   String to insert as table attributes
+-y attributes   String to insert as tr attributes
+-z attributes   String to insert as td or th attributes
+-C attribute    加入cookie, eg. &apos;Apache=1234. (repeatable)
+-H attribute    加入http头, eg. &apos;Accept-Encoding: gzip&apos;
+                Inserted after all normal header lines. (repeatable)
+-A attribute    http验证,分隔传递用户名及密码
+-P attribute    Add Basic Proxy Authentication, the attributes
+                are a colon separated username and password.
+-X proxy:port   代理服务器
+-V              查看ab版本
+-k              Use HTTP KeepAlive feature
+-d              Do not show percentiles served table.
+-S              Do not show confidence estimators and warnings.
+-g filename     Output collected data to gnuplot format file.
+-e filename     Output CSV file with percentages served
+-h              Display usage information (this message)</code></pre>
             </div>
             <hr/>
 
@@ -566,9 +631,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《go mod命令》
+                    《ab压测简单使用》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/02/27/golang/gomod命令/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/04/21/test/AB压测/" property="cc:attributionName"
                rel="cc:attributionURL">
                 wangdy
             </a> 采用
@@ -608,32 +673,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/27/golang/易错点/">
+                <a href="/2020/04/21/test/AB压测/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="ab压测简单使用">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">ab压测简单使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、在函数返回参数中已定义error变量，在if中内层重新定义了error，这会导致return返回的是外层的error
-func foo(x string) (ret int, err error) {
-    if true {
-   
+                            基本用法: ab -n 1000 -c 100 -p ‘post.txt’ -T ‘application/json’ ‘http://test.ipalfish.com/klian/ugc/picvideo/video/statistic
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -642,6 +705,7 @@ func foo(x string) (ret int, err error) {
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -652,31 +716,25 @@ func foo(x string) (ret int, err error) {
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/27/golang/golang知识点/">
+                <a href="/2020/04/07/demo/资料收集/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="常用知识点">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="笔记、blog收集">
                         
-                        <span class="card-title">常用知识点</span>
+                        <span class="card-title">笔记、blog收集</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            常见点
-１、go的调度
-２、go struct能不能比较
-因为是强类型语言，所以不同类型的结构不能作比较，但是同一类型的实例值是可以比较的，实例不可以比较，因为是指针类型
-
-３、go defer（for defer），先进后出，后进先出
-
+                            1、https://shengxinjing.cn2、GRPC源码阅读3、hgw 的 gateway3、manba 的 gateway3、goku 的 gateway  
 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-07
                             </span>
                         <span class="publish-author">
                             
