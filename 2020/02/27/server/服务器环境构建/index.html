@@ -404,7 +404,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>1、购买服务器，因为阿里云比腾讯云贵，所以买了腾讯云<br>2、使用命令登录：ssh -p 22 <a href="mailto:root@xxx.xxx" target="_blank" rel="noopener">root@xxx.xxx</a> ，确定后输入密码<br>    注意：<br>    1、配置公钥后密码就不用输入了<br>    2、-p 22 是默认的，可以不写，如果换端口就需要写上，@后边跟服务器公网IP或者域名<br>3、替换修改服务器名称<br>    vim /etc/sysconfig/network<br>    NETWORKING=yes<br>    HOSTNAME=centos     //修改为自己的hostname<br>    vim /etc/hosts<br>    ::1 centos centos //将原来的服务器名改为自己的hostname<br>    vim /etc/hostname<br>    centos      //修改为自己的hostname<br>4、更换ssh端口<br>    vim /etc/ssh/sshd_config<br>    Port 端口号    //添加一行，修改自己的端口<br>    ClientAliveInterval 60 和 ClientAliveCountMax 86400  //修改sshd的连接配置<br>    systemctl restart sshd.service  //重启ssh服务<br>    systemctl status firewalld  //查看防火墙状态或者iptables<br>    firewall-cmd –state //查看防火墙状态<br>    firewall-cmd –query-port=8080/tcp //查询端口是否开放<br>    firewall-cmd –permanent –add-port=80/tcp //开放8080端口<br>    firewall-cmd –permanent –remove-port=8080/tcp //移除端口<br>    firewall-cmd –reload //重启防火墙(修改配置后要重启防火墙)<br>    reboot now //重启服务器<br>5、创建新用户，赋予权限与ssh登录<br>    adduser name<br>    passwd name //确定后输入两次密码<br>    chmod -v u+w /etc/sudoers //确保文件可以读写，否则没法修改<br>    name ALL=(ALL) ALL #在 Allow root to run any commands anywhere root ALL=(ALL) ALL 这一行下插入一行<br>    使用name远程ssh登录<br>    chmod 700 ~/.ssh<br>    chmod 600 ~/.ssh/authorized_keys<br>    然后把公钥复制到authorized_keys里就ok了</p>
+                <p>1、购买服务器，因为阿里云比腾讯云贵，所以买了腾讯云<br>2、使用命令登录：ssh -p 22 <a href="mailto:root@xxx.xxx" target="_blank" rel="noopener">root@xxx.xxx</a> ，确定后输入密码<br>    注意：<br>    1、配置公钥后密码就不用输入了<br>    2、-p 22 是默认的，可以不写，如果换端口就需要写上，@后边跟服务器公网IP或者域名<br>3、替换修改服务器名称<br>    vim /etc/sysconfig/network<br>    NETWORKING=yes<br>    HOSTNAME=centos     //修改为自己的hostname<br>    vim /etc/hosts<br>    ::1 centos centos //将原来的服务器名改为自己的hostname<br>    vim /etc/hostname<br>    centos      //修改为自己的hostname<br>    reboot      //重启服务器或者使用（shutdown -r now/1,指定几分钟后执行）<br>4、更换ssh端口<br>    vim /etc/ssh/sshd_config<br>    Port 端口号    //添加一行，修改自己的端口<br>    ClientAliveInterval 60 和 ClientAliveCountMax 86400  //修改sshd的连接配置<br>    systemctl restart sshd.service  //重启ssh服务<br>    systemctl status firewalld  //查看防火墙状态或者iptables<br>    firewall-cmd –state //查看防火墙状态<br>    firewall-cmd –query-port=8080/tcp //查询端口是否开放<br>    firewall-cmd –permanent –add-port=80/tcp //开放8080端口<br>    firewall-cmd –permanent –remove-port=8080/tcp //移除端口<br>    firewall-cmd –reload //重启防火墙(修改配置后要重启防火墙)<br>    reboot now //重启服务器<br>5、创建新用户，赋予权限与ssh登录<br>    adduser name<br>    passwd name //确定后输入两次密码<br>    chmod -v u+w /etc/sudoers //确保文件可以读写，否则没法修改<br>    #在 Allow root to run any commands anywhere root ALL=(ALL) ALL 这一行下插入一行<br>    name ALL=(ALL) ALL<br>    #使用name远程ssh 密码登录<br>    chmod 700 ~/.ssh<br>    chmod 600 ~/.ssh/authorized_keys<br>    然后把公钥复制到authorized_keys里就可以免密登录了</p>
 <p>6、安装go环境<br>    wget <a href="https://studygolang.com/dl/golang/go1.13.8.linux-amd64.tar.gz" target="_blank" rel="noopener">https://studygolang.com/dl/golang/go1.13.8.linux-amd64.tar.gz</a><br>    tar -C /usr/local -xvzf xxx.tar.gx //解压包到/usr/local/go<br>    vim /etc/profile    #打开文件，在最后添加下边两行<br>    export GOROOT=/usr/local/go<br>    export PATH=$PATH:$GOROOT/bin<br>    source /etc/profile #保存退出后source xxx<br>    go version //查看安装结果<br>    *注意：有可能有gcc报错<br>    yum install gcc<br>    gcc –version   //查看安装gcc结果<br>    运行go<br>    nohup ./program &gt;/dev/null 2&gt;log &amp;<br>    nohup ./program &gt;/dev/null 2&gt;&amp;1 &amp;<br>    关于/dev/null<br>    /dev/null属于字符特殊文件，它属于空设备，是一个特殊的设备文件，它会丢弃一切写入其中的数据，写入它的内容都会永远丢失，而且没有任何可以读取的内容。它就像一个黑洞，我们一般会把/dev/null当成一个垃圾站，不要的东西丢进去。比如来清除文件中的内容。<br>    Linux的重定向<br>    0：表示标准输入；<br>    1：标准输出,在一般使用时，默认的是标准输出；<br>    2：表示错误信息输出<br>    ./program &gt;/dev/null 2&gt;log表示将program的错误信息输出到log文件，其他信息丢进/dev/null<br>    ./program &gt;/dev/null 2&gt;&amp;1表示将program的错误信息重定向到标准输出，其他信息丢<br>7、安装node环境<br>    1、选择node<br>    node官网查询发布版本，选择版本：<a href="https://nodejs.org/dist/" target="_blank" rel="noopener">https://nodejs.org/dist/</a><br>    <a href="https://nodejs.org/dist/v12.12.0/node-v12.12.0-linux-x64.tar.gz" target="_blank" rel="noopener">https://nodejs.org/dist/v12.12.0/node-v12.12.0-linux-x64.tar.gz</a><br>    2、安装<br>    下载：wget <a href="https://nodejs.org/dist/latest-v8.x/node-v8.11.4-linux-x64.tar.gz" target="_blank" rel="noopener">https://nodejs.org/dist/latest-v8.x/node-v8.11.4-linux-x64.tar.gz</a><br>        存放目录说明：<br>        /usr：系统级的目录，可以理解为C:/Windows/，/usr/lib理解为C:/Windows/System32。<br>        /usr/local：用户级的程序目录，可以理解为C:/Progrem Files/。用户自己编译的软件默认会安装到这个目录下。<br>        /opt：用户级的程序目录，可以理解为D:/Software，opt有可选的意思，这里可以用于放置第三方大型软件（或游戏），<br>        当你不需要时，直接rm -rf掉即可。在硬盘容量不够时，也可将/opt单独挂载到其他磁盘上使用。<br>        源码放哪里？<br>        /usr/src：系统级的源码目录。<br>        /usr/local/src：用户级的源码目录。<br>    解压：tar -C /usr/local/ -xvzf node-v12.12.0-linux-x64.tar.gz<br>    重命名：mv node-v12.12.0-linux-x64.tar.gz node<br>    * 如果不解压到usr目录的话，可以创建软连接：<br>        sudo ln -s /home/xxx/node-v8.9.0/bin/node /usr/local/bin/node<br>        sudo ln -s /home/xxx/node-v8.9.0/bin/npm /usr/local/bin/npm<br>    修改配置文件：vim  /etc/profile<br>    export NODE_HOME=/usr/local/nodejs<br>    export PATH=$NODE_HOME/bin:$PATH<br>    生效配置：source  /etc/profile<br>    3、测试node<br>    node -v<br>    npm -v</p>
 <p>8、生成ssh公钥私钥</p>
 <pre><code>确认本机sshd的配置文件（需要root权限）
@@ -625,31 +625,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/28/golang/golang规则表达式/">
+                <a href="/2020/02/27/server/linux常用命令/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="在复杂多变的业务中使用规则表达式">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">在复杂多变的业务中使用规则表达式</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            不废话，直接上demo，实际应用中需要考虑的因素比较多，结合具体情况吧。
-package main
-
-import (
-    &quot;fmt&quot;
-    &quot;time&quot;
-
-    &quot;github.c
+                            1、当前命令行    ctrl + c ：不想执行当前命令行    ctrl + a ：移动光标至的字符头    ctrl + e ：移动光标至的字符尾    ctrl + l ：清屏    ctrl + w ：往回删除一个单词，光标放在最
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-28
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-27
                         </span>
                         <span class="publish-author">
                             
@@ -669,19 +662,26 @@ import (
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/27/server/linux常用命令/">
+                <a href="/2020/02/27/server/hexo命令/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="hexo使用">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">hexo使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、当前命令行    ctrl + c ：不想执行当前命令行    ctrl + a ：移动光标至的字符头    ctrl + e ：移动光标至的字符尾    ctrl + l ：清屏    ctrl + w ：往回删除一个单词，光标放在最
+                            Welcome to hexo! blog!
+1、安装git、node.js(npm)
+2、安装hexo
+
+配置_config.yml时
+执行：hexo d
+出现：ERROR Deployer not found: git
+解决办法：npm
                         
                     </div>
                     <div class="publish-info">
