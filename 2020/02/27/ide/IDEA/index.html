@@ -4,9 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="项目导入idea后报错, golang,linux,python,android">
-    <meta name="description" content="项目导入IDEA后，Event Log提示“Unmapped Spring configuration files found.Please configure Spring facet.”
-原因是web工程中的spring配置文件没有被I">
+    <meta name="keywords" content="idea配置与常见问题, golang,linux,python,android">
+    <meta name="description" content="项目导入idea后报错项目导入IDEA后，Event Log提示“Unmapped Spring configuration files found.Please configure Spring facet.”原因是web工程中的spri">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>项目导入idea后报错 | 王先森</title>
+    <title>idea配置与常见问题 | 王先森</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -261,13 +260,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        项目导入idea后报错
+                        idea配置与常见问题
                     </div>
                 </div>
             </div>
@@ -405,11 +404,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>项目导入IDEA后，Event Log提示“Unmapped Spring configuration files found.Please configure Spring facet.”</p>
-<p>原因是web工程中的spring配置文件没有被IDEA所管理，解决这个问题也很简单，只需要2步操作即可：<br>1.“Ctrl+Shift+Alt+S”打开project的配置界面，选择“Modules”页签，再选择报“Unmapped Spring configuration files found.”的Module，点击“+”按钮；<br>2.在弹出的窗口内，全部勾选Unmapped的Spring配置文件，点击“确定”，然后在父界面中点击“应用”或“确定”完成保存。</p>
-<p>最后，重启IDEA后，发现”Event Log”不再提示“Unmapped Spring configuration files found.Please configure Spring facet.”</p>
-<p><a href="https://blog.csdn.net/flyingnet/article/details/78009254" target="_blank" rel="noopener">引自</a></p>
+                <h5 id="项目导入idea后报错"><a href="#项目导入idea后报错" class="headerlink" title="项目导入idea后报错"></a>项目导入idea后报错</h5><p>项目导入IDEA后，Event Log提示“Unmapped Spring configuration files found.Please configure Spring facet.”<br>原因是web工程中的spring配置文件没有被IDEA所管理，解决这个问题也很简单，只需要2步操作即可：<br>1.“Ctrl+Shift+Alt+S”打开project的配置界面，选择“Modules”页签，再选择报“Unmapped Spring configuration files found.”的Module，点击“+”按钮；<br>2.在弹出的窗口内，全部勾选Unmapped的Spring配置文件，点击“确定”，然后在父界面中点击“应用”或“确定”完成保存。<br>最后，重启IDEA后，发现”Event Log”不再提示“Unmapped Spring configuration files found.Please configure Spring facet.”<br><a href="https://blog.csdn.net/flyingnet/article/details/78009254" target="_blank" rel="noopener">引自</a>  </p>
+<h5 id="idea配置文件注释模板"><a href="#idea配置文件注释模板" class="headerlink" title="idea配置文件注释模板"></a>idea配置文件注释模板</h5><pre><code>/*
+ @Author : ${USER}
+ @Time   : ${DATE} ${TIME}
+ @Desc   : ${DESCRIPTION}
+*/
 
+package ${GO_PACKAGE_NAME}</code></pre><h5 id><a href="#" class="headerlink" title></a></h5>
             </div>
             <hr/>
 
@@ -567,7 +569,7 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《项目导入idea后报错》
+                    《idea配置与常见问题》
                 </span> 由
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/02/27/ide/IDEA/" property="cc:attributionName"
                rel="cc:attributionURL">
@@ -613,24 +615,22 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/27/ide/ide内存管理/">
+                <a href="/2020/02/27/golang/易错点/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="修改ide初始参数">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">修改ide初始参数</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在打开项目时，因为项目过大，代码量达到1G，加上其他文件达到1.7个G，所以ide默认内存不够了，要修改参数：
-方法一：
-    1、打开访达
-    2、进入应用程序，右键*.app
-    3、菜单选择“显示包内容”
-    4、在Co
+                            1、在函数返回参数中已定义error变量，在if中内层重新定义了error，这会导致return返回的是外层的error
+func foo(x string) (ret int, err error) {
+    if true {
+   
                         
                     </div>
                     <div class="publish-info">
@@ -655,26 +655,21 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/27/golang/golang知识点/">
+                <a href="/2020/02/27/golang/golang开源blog收集/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="常用知识点">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">常用知识点</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            常见点
-１、go的调度
-２、go struct能不能比较
-因为是强类型语言，所以不同类型的结构不能作比较，但是同一类型的实例值是可以比较的，实例不可以比较，因为是指针类型
-
-３、go defer（for defer），先进后出，后进先出
-
-
+                            go实现的开源博客收集1、https://github.com/go-chinese-site/dreamgo    //demo
+2、https://github.com/wangsongyan/wblog  //demo
+3、https
                         
                     </div>
                     <div class="publish-info">
