@@ -5,7 +5,8 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="ab压测简单使用, golang,linux,python,android">
-    <meta name="description" content="基本用法: ab -n 1000 -c 100 -p ‘post.txt’ -T ‘application/json’ ‘http://test.ipalfish.com/klian/ugc/picvideo/video/statistic">
+    <meta name="description" content="基本用法: ab -n 1000 -c 100 -p ‘post.txt’ -T ‘application/json’ ‘http://xxx&amp;#39; &amp;gt;&amp;gt;test.txt
+上面的测试用例表示100并发的情况下，共测试访问10">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -404,7 +405,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>基本用法:<br> ab -n 1000 -c 100 -p ‘post.txt’ -T ‘application/json’ ‘<a href="http://test.ipalfish.com/klian/ugc/picvideo/video/statistics/set&#39;" target="_blank" rel="noopener">http://test.ipalfish.com/klian/ugc/picvideo/video/statistics/set&#39;</a> &gt;&gt;test.txt</p>
+                <p>基本用法:<br> ab -n 1000 -c 100 -p ‘post.txt’ -T ‘application/json’ ‘<a href="http://xxx&#39;" target="_blank" rel="noopener">http://xxx&#39;</a> &gt;&gt;test.txt</p>
 <p>上面的测试用例表示100并发的情况下，共测试访问1000次，并将测试结果保存到test.txt文件中。</p>
 <h3 id="数据结果分析"><a href="#数据结果分析" class="headerlink" title="数据结果分析"></a>数据结果分析</h3><pre><code>ab -n 全部请求数 -c 并发数 测试url
 例:ab -n 1000 -c 50 http://www.newdev.gztest.com/
