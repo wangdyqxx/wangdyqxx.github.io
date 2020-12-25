@@ -759,7 +759,7 @@ time.Sleep(1e9)
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/27/golang/golang开源blog收集/">
+                <a href="/2020/02/27/java/mac安装gradle/">
                     <div class="card-image">
                         
                         
@@ -771,7 +771,11 @@ time.Sleep(1e9)
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            go实现的开源博客收集1、https://github.com/go-chinese-site/dreamgo    //demo2、https://github.com/wangsongyan/wblog  //demo3、https:/
+                            1、首先安装java环境，这个就略了
+2、下载gradle ，下载最好下载all版本的
+3、配置环境：解压包，放到自己喜欢的目录下，把bin目录添加到环境变量中：
+open -e .bash_profile
+GRADLE_HOME=/Use
                         
                     </div>
                     <div class="publish-info">
@@ -796,19 +800,26 @@ time.Sleep(1e9)
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/27/golang/gomod命令/">
+                <a href="/2020/02/27/golang/golang知识点/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="go mod命令">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="常用知识点">
                         
-                        <span class="card-title">go mod命令</span>
+                        <span class="card-title">常用知识点</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            gomod文件初始化：go mod init找到项目依赖并导入：go mod tidy安装指定版本：go mod edit -require=path@version更新依赖版本：go get -u github.com/gookit/fi
+                            常见点
+１、go的调度
+２、go struct能不能比较
+因为是强类型语言，所以不同类型的结构不能作比较，但是同一类型的实例值是可以比较的，实例不可以比较，因为是指针类型
+
+３、go defer（for defer），先进后出，后进先出
+
+
                         
                     </div>
                     <div class="publish-info">
